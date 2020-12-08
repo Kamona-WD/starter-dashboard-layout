@@ -2,7 +2,7 @@
 
 Starter responsive dashboard layout built with tailwindcss alpinejs
 
-[See live](https://kamona-wd.github.io/startert-dashboard-layout/)
+[See live](https://kamona-wd.github.io/starter-dashboard-layout/)
 
 To get started:
 
