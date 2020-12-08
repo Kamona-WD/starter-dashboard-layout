@@ -1,0 +1,38 @@
+{
+  "name": "starter-dashboard-layout",
+  "version": "1.0.0",
+  "description": "Starter responsive dashboard layout built with tailwindcss alpinejs",
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development concurrently \"postcss public/tailwind.css -o public/build/tailwind.css --watch\"  \"live-server ./public --no-browser\"",
+    "development": "cross-env NODE_ENV=development postcss public/tailwind.css -o public/build/tailwind.css",
+    "production": "cross-env NODE_ENV=production postcss public/tailwind.css -o public/build/tailwind.css",
+    "start": "npm run serve"
+  },
+  "keywords": [
+    "dashboard",
+    "tailwindcss",
+    "layout"
+  ],
+  "author": {
+    "name": "Ahmed Kamel",
+    "email": "ak3849909@gmail.com",
+    "url": "https://github.com/Kamona-WD"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "9",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
+    "live-server": "^1.2.1",
+    "postcss-cli": "^7.1.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120
+  }
+}
