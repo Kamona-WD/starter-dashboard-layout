@@ -11,7 +11,7 @@ To get started:
    ```bash
    git clone https://github.com/Kamona-WD/starter-dashboard-layout.git
 
-   starter-dashboard-layout
+   cd starter-dashboard-layout
    ```
 
 2. Install the dependencies:
