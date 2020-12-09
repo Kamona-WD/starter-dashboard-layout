@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Starter responsive dashboard layout built with tailwindcss alpinejs",
   "scripts": {
-    "serve": "cross-env NODE_ENV=development concurrently \"postcss public/tailwind.css -o public/build/tailwind.css --watch\"  \"live-server ./public --no-browser\"",
+    "serve": "cross-env NODE_ENV=development concurrently \"postcss public/tailwind.css -o public/build/tailwind.css --watch\"  \"live-server ./public\"",
     "development": "cross-env NODE_ENV=development postcss public/tailwind.css -o public/build/tailwind.css",
     "production": "cross-env NODE_ENV=production postcss public/tailwind.css -o public/build/tailwind.css",
     "start": "npm run serve"
