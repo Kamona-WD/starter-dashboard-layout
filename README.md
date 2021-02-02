@@ -7,6 +7,12 @@ Starter responsive dashboard layout built with tailwindcss alpinejs
 
 ## [See live](https://kamona-wd.github.io/starter-dashboard-layout/)
 
+## Another version
+
+### Dark & light mode example
+### [Live](https://kamona-wd.github.io/kwd-dashboard/)
+### [Githup repo](https://github.com/Kamona-WD/kwd-dashboard/)
+
 To get started:
 
 1. Clone the repository:
@@ -55,6 +61,9 @@ yarn production
 
 After that's done, check out `./public/build/tailwind.css` to see the optimized output.
 
+---
+
+## Support
 
 <a href="https://www.buymeacoffee.com/ahmedkamel" target="_blank" style="display: inline-block !important;"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
