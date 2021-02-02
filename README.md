@@ -13,6 +13,8 @@ Starter responsive dashboard layout built with tailwindcss alpinejs
 ### [Live](https://kamona-wd.github.io/kwd-dashboard/)
 ### [Githup repo](https://github.com/Kamona-WD/kwd-dashboard/)
 
+---
+
 To get started:
 
 1. Clone the repository:
