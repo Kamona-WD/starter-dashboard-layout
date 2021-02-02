@@ -11,7 +11,7 @@ Starter responsive dashboard layout built with tailwindcss alpinejs
 
 ### Dark & light mode example
 ### [Live](https://kamona-wd.github.io/kwd-dashboard/)
-### [Githup repo](https://github.com/Kamona-WD/kwd-dashboard/)
+### [Github repo](https://github.com/Kamona-WD/kwd-dashboard/)
 
 ---
 
