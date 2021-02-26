@@ -5,13 +5,17 @@ Starter responsive dashboard layout built with tailwindcss alpinejs
 [![GitHub license](https://img.shields.io/github/license/Kamona-WD/starter-dashboard-layout)](https://github.com/Kamona-WD/starter-dashboard-layout/blob/main/License.md)
 [![GitHub stars](https://img.shields.io/github/stars/Kamona-WD/starter-dashboard-layout)](https://github.com/Kamona-WD/starter-dashboard-layout/stargazers)
 
-## [See live](https://kamona-wd.github.io/starter-dashboard-layout/)
+### [See live](https://kamona-wd.github.io/starter-dashboard-layout/)
 
-## Another version
+### Vue version
+#### [Live](https://kamona-wd.github.io/starter-dashboard-layout-vue/)
+#### [Github repo](https://github.com/Kamona-WD/kwd-dashboard-vue/)
 
-### Dark & light mode example
-### [Live](https://kamona-wd.github.io/kwd-dashboard/)
-### [Github repo](https://github.com/Kamona-WD/kwd-dashboard/)
+### Another project
+
+#### K-WD Dashboard
+#### [Live](https://kamona-wd.github.io/kwd-dashboard/)
+#### [Github repo](https://github.com/Kamona-WD/kwd-dashboard/)
 
 ---
 
