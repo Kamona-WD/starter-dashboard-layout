@@ -9,7 +9,7 @@ Starter responsive dashboard layout built with tailwindcss alpinejs
 
 ### Vue version
 #### [Live](https://kamona-wd.github.io/starter-dashboard-layout-vue/)
-#### [Github repo](https://github.com/Kamona-WD/kwd-dashboard-vue/)
+#### [Github repo](https://github.com/Kamona-WD/starter-dashboard-layout-vue/)
 
 ### Another project
 
