@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "9",
+    "reload": "^3.2.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "devDependencies": {
