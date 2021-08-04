@@ -3,10 +3,16 @@
   "version": "1.0.0",
   "description": "Starter responsive dashboard layout built with tailwindcss alpinejs",
   "scripts": {
-    "serve": "cross-env NODE_ENV=development concurrently \"postcss public/tailwind.css -o public/build/tailwind.css --watch\"  \"live-server ./public\"",
-    "development": "cross-env NODE_ENV=development postcss public/tailwind.css -o public/build/tailwind.css",
-    "production": "cross-env NODE_ENV=production postcss public/tailwind.css -o public/build/tailwind.css",
-    "start": "npm run serve"
+    "serve": "cross-env run-p css:watch html:watch html:serve",
+    "prod": "run-s css:build html:build format",
+    "css:build": "cross-env tailwind -i src/css/tailwind.css -o public/assets/css/tailwind.css -m",
+    "css:watch": "cross-env tailwind -i src/css/tailwind.css -o public/assets/css/tailwind.css -w",
+    "html:build": "cross-env edge -o public -a",
+    "html:watch": "cross-env edge -o public -a -w",
+    "html:serve": "cross-env live-server ./public",
+    "format": "cross-env prettier -w public",
+    "predeploy": "run-s css:build html:build format",
+    "deploy": "gh-pages -d public"
   },
   "keywords": [
     "dashboard",
@@ -19,16 +25,17 @@
     "url": "https://github.com/Kamona-WD"
   },
   "license": "MIT",
-  "dependencies": {
-    "autoprefixer": "9",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
-  },
   "devDependencies": {
-    "concurrently": "^5.3.0",
+    "@kamona/edge-cli": "^0.0.2",
+    "autoprefixer": "^10.3.1",
     "cross-env": "^7.0.2",
-    "cssnano": "^4.1.10",
+    "gh-pages": "^3.2.3",
     "live-server": "^1.2.1",
-    "postcss-cli": "^7.1.1"
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^7.1.1",
+    "prettier": "^2.3.2",
+    "tailwindcss": "^2.2.7"
   },
   "prettier": {
     "semi": false,

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Starter Dashboard Layout</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.css" />
-    <link rel="stylesheet" href="/build/tailwind.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
   </head>
   <body class="antialiased text-gray-900 bg-white">
@@ -17,19 +17,17 @@
       <!-- Loading screen -->
       <div
         x-ref="loading"
-        class="fixed inset-0 z-50 flex items-center justify-center text-white bg-black bg-opacity-50"
+        class="fixed inset-0 z-[200] flex items-center justify-center text-white bg-black bg-opacity-50"
         style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
       >
         Loading.....
       </div>
-
       <!-- Sidebar backdrop -->
       <div
         x-show.in.out.opacity="isSidebarOpen"
         class="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden"
         style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
       ></div>
-
       <!-- Sidebar -->
       <aside
         x-transition:enter="transition transform duration-300"
@@ -38,7 +36,21 @@
         x-transition:leave="transition transform duration-300"
         x-transition:leave-start="translate-x-0 opacity-100 ease-out"
         x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-        class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-64 max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none"
+        class="
+          fixed
+          inset-y-0
+          z-10
+          flex flex-col flex-shrink-0
+          w-64
+          max-h-screen
+          overflow-hidden
+          transition-all
+          transform
+          bg-white
+          border-r
+          shadow-lg
+          lg:z-auto lg:static lg:shadow-none
+        "
         :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
       >
         <!-- sidebar header -->
@@ -92,7 +104,22 @@
         <!-- Sidebar footer -->
         <div class="flex-shrink-0 p-2 border-t max-h-14">
           <button
-            class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring"
+            class="
+              flex
+              items-center
+              justify-center
+              w-full
+              px-4
+              py-2
+              space-x-1
+              font-medium
+              tracking-wider
+              uppercase
+              bg-gray-100
+              border
+              rounded-md
+              focus:outline-none focus:ring
+            "
           >
             <span>
               <svg
@@ -116,7 +143,6 @@
       </aside>
 
       <div class="flex flex-col flex-1 h-full overflow-hidden">
-        <!-- Navbar -->
         <header class="flex-shrink-0 border-b">
           <div class="flex items-center justify-between p-2">
             <!-- Navbar left -->
@@ -149,8 +175,8 @@
               >
                 <div class="flex items-center flex-1 px-2 space-x-2">
                   <!-- search icon -->
-                  <span>
-                    <svg
+                  <span
+                    ><svg
                       class="w-6 h-6 text-gray-500"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -188,27 +214,34 @@
 
             <!-- Desktop search box -->
             <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">
-              <!-- search icon -->
-              <span>
-                <svg
-                  class="w-5 h-5 text-gray-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </span>
+              <!-- search icon --><svg
+                class="w-5 h-5 text-gray-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+
               <input
                 type="text"
                 placeholder="Search"
-                class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"
+                class="
+                  px-4
+                  py-3
+                  rounded-md
+                  hover:bg-gray-100
+                  lg:max-w-sm
+                  md:py-2 md:flex-1
+                  focus:outline-none
+                  md:focus:bg-gray-100 md:focus:shadow md:focus:border
+                "
               />
             </div>
 
@@ -236,7 +269,7 @@
               </button>
 
               <div class="items-center hidden space-x-3 md:flex">
-                <!-- Notification Button -->
+                <!-- Notification Menu -->
                 <div class="relative" x-data="{ isOpen: false }">
                   <!-- red dot -->
                   <div class="absolute right-0 p-1 bg-red-400 rounded-full animate-ping"></div>
@@ -261,11 +294,22 @@
                     </svg>
                   </button>
 
-                  <!-- Dropdown card -->
                   <div
                     @click.away="isOpen = false"
                     x-show.transition.opacity="isOpen"
-                    class="absolute w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"
+                    class="
+                      absolute
+                      z-50
+                      w-48
+                      max-w-md
+                      mt-3
+                      transform
+                      bg-white
+                      rounded-md
+                      shadow-lg
+                      -translate-x-3/4
+                      min-w-max
+                    "
                   >
                     <div class="p-4 font-medium border-b">
                       <span class="text-gray-800">Notification</span>
@@ -284,8 +328,8 @@
                   </div>
                 </div>
 
-                <!-- Services Button -->
-                <div x-data="{ isOpen: false }">
+                <!-- Services Menu -->
+                <div class="relative" x-data="{ isOpen: false }">
                   <button
                     @click="isOpen = !isOpen"
                     class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"
@@ -306,12 +350,22 @@
                     </svg>
                   </button>
 
-                  <!-- Dropdown -->
                   <div
                     @click.away="isOpen = false"
-                    @keydown.escape="isOpen = false"
                     x-show.transition.opacity="isOpen"
-                    class="absolute mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"
+                    class="
+                      absolute
+                      z-50
+                      w-48
+                      max-w-md
+                      mt-3
+                      transform
+                      bg-white
+                      rounded-md
+                      shadow-lg
+                      -translate-x-3/4
+                      min-w-max
+                    "
                   >
                     <div class="p-4 text-lg font-medium border-b">Web apps & services</div>
                     <ul class="flex flex-col p-2 my-3 space-y-3">
@@ -377,7 +431,7 @@
                   </div>
                 </div>
 
-                <!-- Options Button -->
+                <!-- Options Menu -->
                 <div class="relative" x-data="{ isOpen: false }">
                   <button
                     @click="isOpen = !isOpen"
@@ -399,11 +453,22 @@
                     </svg>
                   </button>
 
-                  <!-- Dropdown card -->
                   <div
                     @click.away="isOpen = false"
                     x-show.transition.opacity="isOpen"
-                    class="absolute w-40 max-w-sm mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"
+                    class="
+                      absolute
+                      z-50
+                      w-48
+                      max-w-md
+                      mt-3
+                      transform
+                      bg-white
+                      rounded-md
+                      shadow-lg
+                      -translate-x-3/4
+                      min-w-max
+                    "
                   >
                     <div class="p-4 font-medium border-b">
                       <span class="text-gray-800">Options</span>
@@ -423,7 +488,7 @@
                 </div>
               </div>
 
-              <!-- avatar button -->
+              <!-- User Menu -->
               <div class="relative" x-data="{ isOpen: false }">
                 <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
                   <img
@@ -436,11 +501,22 @@
                 <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping"></div>
                 <div class="absolute right-0 p-1 bg-green-400 border border-white rounded-full bottom-3"></div>
 
-                <!-- Dropdown card -->
                 <div
                   @click.away="isOpen = false"
                   x-show.transition.opacity="isOpen"
-                  class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
+                  class="
+                    absolute
+                    z-50
+                    w-48
+                    max-w-md
+                    mt-3
+                    transform
+                    bg-white
+                    rounded-md
+                    shadow-lg
+                    -translate-x-3/4
+                    min-w-max
+                  "
                 >
                   <div class="flex flex-col p-4 space-y-1 font-medium border-b">
                     <span class="text-gray-800">Ahmed Kamel</span>
@@ -462,17 +538,37 @@
             </div>
           </div>
         </header>
+
         <!-- Main content -->
         <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
           <!-- Main content header -->
           <div
-            class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"
+            class="
+              flex flex-col
+              items-start
+              justify-between
+              pb-6
+              space-y-4
+              border-b
+              lg:items-center lg:space-y-0 lg:flex-row
+            "
           >
             <h1 class="text-2xl font-semibold whitespace-nowrap">Dashboard</h1>
             <a
               href="https://github.com/Kamona-WD/starter-dashboard-layout"
               target="_blank"
-              class="inline-flex items-center justify-center px-4 py-1 space-x-1 bg-gray-200 rounded-md shadow hover:bg-opacity-20"
+              class="
+                inline-flex
+                items-center
+                justify-center
+                px-4
+                py-1
+                space-x-1
+                bg-gray-200
+                rounded-md
+                shadow
+                hover:bg-opacity-20
+              "
             >
               <span>
                 <svg class="w-4 h-4 text-gray-500" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
@@ -490,8 +586,10 @@
 
           <!-- Chart cards (Four columns grid) -->
           <div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2 lg:grid-cols-4">
-            <!-- Users chart card -->
-            <a href="#" class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+            <!-- Users chart card --><a
+              href="#"
+              class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg"
+            >
               <div class="flex items-start">
                 <div class="flex flex-col flex-shrink-0 space-y-2">
                   <span class="text-gray-400">Total Users</span>
@@ -503,12 +601,14 @@
               </div>
               <div>
                 <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                <span>from 2019</span>
+                <span>from 2020</span>
               </div>
             </a>
 
-            <!-- Sessions chart card -->
-            <a href="#" class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+            <!-- Sessions chart card --><a
+              href="#"
+              class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg"
+            >
               <div class="flex items-start">
                 <div class="flex flex-col flex-shrink-0 space-y-2">
                   <span class="text-gray-400">Sessions</span>
@@ -520,12 +620,14 @@
               </div>
               <div>
                 <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">1.2%</span>
-                <span>from 2019</span>
+                <span>from 2020</span>
               </div>
             </a>
 
-            <!-- Vists chart card -->
-            <a href="#" class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+            <!-- Vists chart card --><a
+              href="#"
+              class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg"
+            >
               <div class="flex items-start">
                 <div class="flex flex-col flex-shrink-0 space-y-2">
                   <span class="text-gray-400">Vists</span>
@@ -537,12 +639,14 @@
               </div>
               <div>
                 <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">10%</span>
-                <span>from 2019</span>
+                <span>from 2020</span>
               </div>
             </a>
 
-            <!-- Articles chart card -->
-            <a href="#" class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+            <!-- Articles chart card --><a
+              href="#"
+              class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg"
+            >
               <div class="flex items-start">
                 <div class="flex flex-col flex-shrink-0 space-y-2">
                   <span class="text-gray-400">Articles</span>
@@ -554,7 +658,7 @@
               </div>
               <div>
                 <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">30%</span>
-                <span>from 2019</span>
+                <span>from 2020</span>
               </div>
             </a>
           </div>
@@ -779,7 +883,16 @@
                           </td>
                           <td class="px-6 py-4 whitespace-nowrap">
                             <span
-                              class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full"
+                              class="
+                                inline-flex
+                                px-2
+                                text-xs
+                                font-semibold
+                                leading-5
+                                text-green-800
+                                bg-green-100
+                                rounded-full
+                              "
                             >
                               Active
                             </span>
@@ -828,12 +941,26 @@
           </div>
         </footer>
       </div>
-
       <!-- Setting panel button -->
       <div>
         <button
           @click="isSettingsPanelOpen = true"
-          class="fixed right-0 px-4 py-2 text-sm font-medium text-white uppercase transform rotate-90 translate-x-8 bg-gray-600 top-1/2 rounded-b-md"
+          class="
+            fixed
+            right-0
+            px-4
+            py-2
+            text-sm
+            font-medium
+            text-white
+            uppercase
+            transform
+            rotate-90
+            translate-x-8
+            bg-gray-600
+            top-1/2
+            rounded-b-md
+          "
         >
           Settings
         </button>
@@ -873,7 +1000,7 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-    <script src="/build/script.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
       const setup = () => {
         return {
