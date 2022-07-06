@@ -43,10 +43,10 @@ To get started:
 
    ```bash
    # Using npm
-   npm run serve
+   npm run dev
 
    # Using Yarn
-   yarn serve
+   yarn dev
    ```
 
    Now you should be able to see the project running at localhost:8080.
@@ -59,10 +59,10 @@ To build an optimized version of your CSS & html, simply run:
 
 ```bash
 # Using npm
-npm run prod
+npm run build
 
 # Using Yarn
-yarn prod
+yarn build
 ```
 
 After that's done, check out `./public` to see the optimized output.
