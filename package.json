@@ -3,22 +3,8 @@
   "description": "Starter responsive dashboard layout built with tailwindcss alpinejs",
   "version": "1.0.0",
   "license": "MIT",
-  "scripts": {
-    "dev": "run-p js:watch html:watch css:watch vendor serve",
-    "build": "run-s js:build html:build css:build vendor format",
-    "serve": "node build/cli serve -w",
-    "preview": "node build/cli serve",
-    "css:build": "tailwind -i ./src/css/tailwind.css -o ./public/assets/css/tailwind.css -m",
-    "css:watch": "tailwind -i ./src/css/tailwind.css -o ./public/assets/css/tailwind.css -w",
-    "html:build": "node build/cli html",
-    "html:watch": "node build/cli html -w",
-    "js:build": "node build/cli js",
-    "js:watch": "node build/cli js -w",
-    "vendor": "node build/cli vendor",
-    "format": "prettier -w public",
-    "predeploy": "run-s css:build html:build format",
-    "deploy": "gh-pages -d public"
-  },
+  "type": "module",
+  "private": "true",
   "keywords": [
     "dashboard",
     "tailwindcss",
@@ -29,23 +15,28 @@
     "email": "ak3849909@gmail.com",
     "url": "https://github.com/Kamona-WD"
   },
-  "devDependencies": {
-    "alpinejs": "2.7.3",
-    "browser-sync": "^2.27.10",
-    "chalk": "4.1.2",
-    "chart.js": "2.9.4",
-    "chokidar": "^3.5.3",
-    "commander": "^9.3.0",
-    "edge.js": "^5.3.7",
-    "esbuild": "^0.14.48",
-    "gh-pages": "^3.2.3",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
-    "tailwindcss": "^3.1.4"
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
+    "format": "prettier --write \"src\" \"dist/**/*.html\"",
+    "deploy": "gh-pages -d dist",
+    "p": "prettier --write"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "printWidth": 120
+  "devDependencies": {
+    "@alpinejs/collapse": "^3.14.8",
+    "@iconify-json/tabler": "^1.2.13",
+    "@iconify/tailwind": "^1.2.0",
+    "@tailwindcss/forms": "^0.5.9",
+    "alpinejs": "^3.14.8",
+    "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.3.0",
+    "perfect-scrollbar": "^1.5.6",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.7",
+    "vite-plugin-handlebars": "^2.0.0"
   }
 }
