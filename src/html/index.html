@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+{{#> layouts/main}}
 
-    <link rel="stylesheet" href="{{ resolve-from-root '../css/main.css' }}">
-</head>
-<body>
-    <h1 class="text-3xl">{{ title }}</h1>
-</body>
-</html>
+{{#* inline "header"}}
+<h1 class="whitespace-nowrap text-lg sm:text-2xl font-semibold">Dashboard</h1>
+
+<a
+    href="https://github.com/Kamona-WD/starter-dashboard-layout"
+    aria-disabled="false"
+    class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-black px-4 py-2 text-base font-medium text-gray-300 transition-colors hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+    target="_blank"
+>
+    <span aria-hidden="true" class="iconify h-6 w-6 tabler--brand-github"></span>
+
+    <span>Star on Github</span>
+</a>
+{{/inline}}
+
+<!--  -->
+
+{{/layouts/main}}

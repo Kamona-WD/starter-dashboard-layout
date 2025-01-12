@@ -65,7 +65,7 @@ npm run build
 yarn build
 ```
 
-After that's done, check out `./public` to see the optimized output.
+After that's done, check out `./dist` to see the optimized output.
 
 ---
 

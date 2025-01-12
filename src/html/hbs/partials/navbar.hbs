@@ -1,0 +1,96 @@
+<nav class="sticky top-0 flex-shrink-0 border-b bg-white py-2 px-4 sm:px-6">
+    <div class="container mx-auto">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="text-xl font-semibold uppercase tracking-wider lg:hidden">K-WD</span>
+
+                <!-- Toggle sidebar button -->
+                <button
+                    type="button"
+                    class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                    @click="toggleSidbarMenu()"
+                >
+                    <span class="sr-only">Toggle sidebar</span>
+
+                    <span 
+                        aria-hidden="true"
+                        class="iconify h-6 w-6 tabler--chevrons-right"
+                        :class="{'transform transition-transform -rotate-180': isSidebarOpen}"
+                    ></span>
+                </button>
+
+                <!-- Search button -->
+                <button
+                    @click="$store.search.open()"
+                    type="button"
+                    class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                    <span class="sr-only">Search</span>
+
+                    <span 
+                        aria-hidden="true"
+                        class="iconify h-6 w-6 tabler--search"
+                    ></span>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <!-- Settings button -->
+                <button
+                    @click="isSettingsPanelOpen = true"
+                    type="button"
+                    class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                    <span class="sr-only">Settings</span>
+
+                    <span 
+                        class="iconify h-6 w-6 tabler--settings-cog"
+                    ></span>
+                </button>
+
+                <!-- User dropdown menu -->
+                <div class="relative" x-data="{ isOpen: false }">
+                    <button
+                        @click="isOpen = !isOpen"
+                        class="inline-flex overflow-hidden rounded-md focus:outline-none focus:ring focus:ring-black focus:ring-offset-1 focus:ring-offset-white"
+                    >
+                        <img
+                            class="h-10 w-10 rounded-md object-cover"
+                            src="/images/avatar.jpeg"
+                            alt="User Name"
+                        />
+                    </button>
+
+                    <div 
+                        x-cloak
+                        @click.away="isOpen = false"
+                        x-show.transition.opacity="isOpen"
+                        class="absolute z-[99] mt-2 origin-top-right right-0 w-48 rounded-md shadow-lg"
+                    >
+                        <div class="rounded-md overflow-hidden bg-white ring-1 ring-black/20">
+                             <div class="flex flex-col gap-1 border-b px-4 py-2 font-medium">
+                                <span class="text-gray-800">Ahmed Kamel</span>
+                                <span class="truncate text-xs text-gray-400">
+                                    ahmed.kamel&#64;example.com
+                                </span>
+                            </div>
+                            <a
+                                href="#"
+                                class="block px-4 py-2 font-medium text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none"
+                            >
+                                Profile
+                            </a>
+
+                            <a
+                                href="#"
+                                class="block px-4 py-2 font-medium text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none"
+                            >
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
