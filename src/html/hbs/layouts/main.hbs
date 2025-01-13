@@ -4,12 +4,12 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <meta name="description" content="Admin dashboard layout built with tailwindcss and alpinejs." />
         <meta name="keywords" content="Admin, Dashboard, Template, HTML, CSS, JavaScript, Tailwindcss, Alpinejs" />
         <meta name="author" content="Ahmed Kamel" />
 
-        <title>{{ title }}</title>
+        <title>{{ title }} {{#if pageTitle}} | {{ pageTitle }} {{/if}}</title>
 
         <style>
             [x-cloak] {
@@ -20,21 +20,20 @@
         <link rel="stylesheet" href="{{ resolve-from-root '../css/main.css' }}" />
     </head>
     <body class="font-sans antialiased">
-        <div
-            x-data="setup()"
-            x-init="$refs.loading.classList.add('hidden')"
-        >
+        <div x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
             {{> partials/loading-screen }}
 
             <div class="flex">
-                {{> partials/sidebar }}
+                {{> partials/sidebar activeLink=activeLink group=group }}
 
-                <div class="min-h-screen flex-1 flex flex-col">
+                <div class="flex min-h-screen flex-1 flex-col">
                     {{> partials/navbar }}
 
                     <!-- Page header -->
-                    <div class="border-b bg-white py-2 px-4 sm:px-6 sm:py-4">
-                        <header class="container mx-auto flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
+                    <div class="border-b bg-white px-4 py-2 sm:px-6 sm:py-4">
+                        <header
+                            class="container mx-auto flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center"
+                        >
                             {{> header}}
                         </header>
                     </div>
@@ -51,9 +50,8 @@
                 </div>
             </div>
 
-
             {{> partials/search-modal }}
-            
+
             <!-- Settings panel -->
             <div
                 x-cloak
@@ -77,9 +75,7 @@
                     >
                         <span class="sr-only">Settings</span>
 
-                        <span 
-                            class="iconify h-6 w-6 tabler--x"
-                        ></span>
+                        <span class="iconify h-6 w-6 tabler--x"></span>
                     </button>
                 </div>
 

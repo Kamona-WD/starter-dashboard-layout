@@ -1,4 +1,4 @@
-import { resolve, relative, extname } from 'path'
+import { resolve, relative } from 'path'
 import { defineConfig } from 'vite'
 import { glob } from 'glob'
 import handlebarsPlugin from 'vite-plugin-handlebars'
@@ -50,7 +50,6 @@ export default defineConfig({
         outDir: resolve(__dirname, 'dist'),
         rollupOptions: {
             input: entries,
-            external: ['apexchart', 'alpinejs'],
             output: {
                 assetFileNames: (chunkInfo) => {
                      let outDir = ''
@@ -61,7 +60,6 @@ export default defineConfig({
                     
                     return `${outDir}/[name][extname]`;
                 },
-                chunkFileNames: 'js/[name]-[hash].js'
             }
         },
     },

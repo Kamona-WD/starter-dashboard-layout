@@ -9,7 +9,7 @@
         <meta name="keywords" content="Admin, Dashboard, Template, HTML, CSS, JavaScript, Tailwindcss, Alpinejs" />
         <meta name="author" content="Ahmed Kamel" />
 
-        <title>Starter Dashboard Layout</title>
+        <title>Starter Dashboard Layout | Blank</title>
 
         <style>
             [x-cloak] {
@@ -81,7 +81,7 @@
                             <li>
                                 <a
                                     href="/index.html"
-                                    class="flex items-center gap-2 rounded-md bg-black p-2 text-white transition-colors hover:bg-gray-800"
+                                    class="flex items-center gap-2 rounded-md p-2 transition-colors hover:bg-black hover:text-white"
                                     :class="{'justify-center': !isSidebarOpen}"
                                 >
                                     <span
@@ -94,10 +94,10 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="relative" x-data="{ open:  false  }">
+                            <li class="relative" x-data="{ open:  true  }">
                                 <button
                                     type="button"
-                                    class="flex w-full items-center gap-2 rounded-md p-2 transition-colors hover:bg-black hover:text-white"
+                                    class="flex w-full items-center gap-2 rounded-md bg-black p-2 text-white transition-colors hover:bg-gray-800"
                                     @click="open = !open"
                                     :class="{'justify-center': !isSidebarOpen}"
                                 >
@@ -136,7 +136,7 @@
                                         >
                                             <a
                                                 href="/blank.html"
-                                                class="text-gray-500 transition-colors hover:text-gray-900"
+                                                class="text-gray-900 transition-colors hover:text-gray-900"
                                             >
                                                 Blank
                                             </a>
@@ -259,7 +259,7 @@
                         <header
                             class="container mx-auto flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center"
                         >
-                            <h1 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Dashboard</h1>
+                            <h1 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Blank</h1>
 
                             <a
                                 href="https://github.com/Kamona-WD/starter-dashboard-layout"

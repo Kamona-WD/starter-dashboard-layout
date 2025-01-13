@@ -33,47 +33,84 @@
             </svg>
         </button>
     </div>
+
     <!-- Sidebar links -->
-    <nav class="flex-1 overflow-hidden hover:overflow-y-auto">
-        <ul class="overflow-hidden p-2">
+    <nav aria-label="main" class="flex-1 overflow-hidden hover:overflow-y-auto">
+        <ul class="space-y-1 overflow-hidden p-2">
+            {{#each navigationLinks}}
+            {{#unless links}}
             <li>
                 <a
-                    href="#"
-                    class="flex items-center space-x-2 rounded-md p-2 transition-colors hover:bg-black hover:text-white"
+                    href="{{ url }}"
+                    class="flex items-center gap-2 rounded-md p-2 transition-colors {{#if (eq ../activeLink title)}} text-white bg-black hover:bg-gray-800 {{else}} hover:text-white hover:bg-black {{/if}}"
                     :class="{'justify-center': !isSidebarOpen}"
                 >
-                    <span>
-                        <svg
-                            class="h-6 w-6 text-gray-400"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                            />
-                        </svg>
+                    <span aria-hidden="true" class="iconify {{ iconName }} flex-shrink-0 h-6 w-6 text-gray-400"></span>
+
+                    <span :class="{ 'lg:hidden': !isSidebarOpen }" class="whitespace-nowrap">
+                        {{ title }}
                     </span>
-                    <span :class="{ 'lg:hidden': !isSidebarOpen }">Dashboard</span>
                 </a>
             </li>
-            
-            <!-- Sidebar Links... -->
+            {{else}}
+            <li class="relative" x-data="{ open: {{#if (eq ../group title)}} true {{else}} false {{/if}} }">
+                <button
+                    type="button"
+                    class="flex items-center gap-2 rounded-md p-2 transition-colors w-full {{#if (eq ../group title)}} text-white bg-black hover:bg-gray-800 {{else}} hover:text-white hover:bg-black {{/if}}"
+                    @click="open = !open"
+                    :class="{'justify-center': !isSidebarOpen}"
+                >
+                    <span class="iconify {{ iconName }} flex-shrink-0 w-6 h-6 text-gray-400" aria-hidden="true"></span>
+
+                    <span :class="{ 'lg:hidden': !isSidebarOpen }" class="whitespace-nowrap">
+                        {{ title }}
+                    </span>
+
+                    <span x-show="isSidebarOpen" aria-hidden="true" class="relative ms-auto block h-6 w-6">
+                        <span
+                            :class="open ? '-rotate-45' : 'rotate-45'"
+                            class="absolute right-[9px] top-1/2 mt-[-5px] h-2 w-[2px] bg-gray-400 transition-all duration-200"
+                        ></span>
+
+                        <span
+                            :class="open ? 'rotate-45' : '-rotate-45'"
+                            class="absolute left-[9px] top-1/2 mt-[-5px] h-2 w-[2px] bg-gray-400 transition-all duration-200"
+                        ></span>
+                    </span>
+                </button>
+
+                <div x-show="open && isSidebarOpen" x-collapse>
+                    <ul
+                        class="relative ml-5 px-0 pb-0 pt-2 before:absolute before:inset-y-0 before:left-0 before:block before:w-0 before:border-l-2 before:border-l-gray-200"
+                    >
+                        {{#each links}}
+                        <li
+                            class="relative m-0 ps-6 leading-8 before:absolute before:left-0 before:top-4 before:-mt-0.5 before:block before:h-0 before:w-4 before:border-t-2 before:border-t-gray-200 last:before:bottom-0 last:before:top-4 last:before:h-auto last:before:bg-white"
+                        >
+                            <a
+                                href="{{ url }}"
+                                class="transition-colors hover:text-gray-900 {{#if (eq ../../activeLink title)}} text-gray-900 {{else}} text-gray-500 {{/if}}"
+                            >
+                                {{ title }}
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+            {{/unless}}
+            {{/each}}
         </ul>
     </nav>
 
     <!-- Sidebar footer -->
     <div class="max-h-14 flex-shrink-0 border-t p-2">
         <button
-            class="flex w-full items-center justify-center gap-1 rounded-md border bg-black text-white px-4 py-2 transition-colors hover:bg-gray-800 font-medium focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white"
+            class="flex w-full items-center justify-center gap-1 rounded-md border bg-black px-4 py-2 font-medium text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white"
         >
-            <span aria-hidden="true" class="iconify h-6 w-6 tabler--sparkles"></span>
+            <span aria-hidden="true" class="iconify h-6 w-6 flex-shrink-0 tabler--sparkles"></span>
 
-            <span :class="{'lg:hidden': !isSidebarOpen}"> Quick Actions </span>
+            <span :class="{'lg:hidden': !isSidebarOpen}" class="whitespace-nowrap"> Quick Actions </span>
         </button>
     </div>
 </aside>

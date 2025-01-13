@@ -30,9 +30,11 @@
                 x-transition:leave="ease-in duration-200"
                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                class="w-full z-[99] bg-white shadow-lg sm:max-w-lg sm:rounded-md"
+                class="z-[99] w-full bg-white shadow-lg sm:max-w-lg sm:rounded-md"
             >
-                <div class="relative sm:rounded-t-md border-b border-black overflow-hidden text-gray-500 focus-within:text-gray-900 dark:focus-within:text-gray-400">
+                <div
+                    class="relative overflow-hidden border-b border-black text-gray-500 focus-within:text-gray-900 dark:focus-within:text-gray-400 sm:rounded-t-md"
+                >
                     <div aria-hidden="true" class="pointer-events-none absolute inset-y-0 flex items-center px-4">
                         <span class="iconify h-5 w-5 tabler--search"></span>
                     </div>
@@ -42,32 +44,32 @@
                         type="text"
                         name="search"
                         placeholder="Search..."
-                        autocomplete="off" 
-                        autocorrect="off" 
+                        autocomplete="off"
+                        autocorrect="off"
                         spellcheck="false"
-                        class="flex w-full py-4 pl-10 pr-16 bg-transparent border-0 rounded-md outline-none focus:outline-none focus:ring-0 focus:border-0 placeholder:text-neutral-400 h-11 disabled:cursor-not-allowed disabled:opacity-50"
+                        class="flex h-11 w-full rounded-md border-0 bg-transparent py-4 pl-10 pr-16 outline-none placeholder:text-neutral-400 focus:border-0 focus:outline-none focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
                     />
 
-                    <button 
+                    <button
                         type="button"
                         @click="$store.search.close()"
-                        class="absolute bg-black text-white transition-colors inset-y-0 right-0 flex items-center px-4 hover:bg-gray-800"
+                        class="absolute inset-y-0 right-0 flex items-center bg-black px-4 text-white transition-colors hover:bg-gray-800"
                     >
                         <span class="sr-only">Close</span>
                         <span aria-hidden="true" class="iconify h-5 w-5 tabler--x"></span>
                     </button>
                 </div>
 
-                <div class="p-4 max-h-[320px] bo overflow-y-auto overflow-x-hidden">
-                    <div class="pb-1 space-y-1">
-                        <div class="px-1 overflow-hidden text-gray-700">
-                            <div class="px-2 py-1 my-1 text-xs font-medium text-neutral-500">
-                                Category
-                            </div>
+                <div class="bo max-h-[320px] overflow-y-auto overflow-x-hidden p-4">
+                    <div class="space-y-1 pb-1">
+                        <div class="overflow-hidden px-1 text-gray-700">
+                            <div class="my-1 px-2 py-1 text-xs font-medium text-neutral-500">Category</div>
                         </div>
-                        
+
                         <div class="px-1">
-                            <div class="relative flex gap-1 cursor-default select-none items-center rounded-md px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                            <div
+                                class="relative flex cursor-default select-none items-center gap-1 rounded-md px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                            >
                                 <span aria-hidden="true" class="iconify tabler--circle"></span>
                                 <span>Item title</span>
                             </div>
