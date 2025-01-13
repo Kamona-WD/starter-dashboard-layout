@@ -1,7 +1,9 @@
 {{#> layouts/main pageTitle="Blank" activeLink="Blank" group="Pages" }}
 
+{{#*inline "styles"}}{{/inline}}
+
 {{#* inline "header"}}
-<h1 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Blank</h1>
+<h2 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Blank</h2>
 
 <a
     href="https://github.com/Kamona-WD/starter-dashboard-layout"
@@ -15,6 +17,8 @@
 </a>
 {{/inline}}
 
-<!--  -->
+<h1 class="sr-only">Blank</h1>
+
+{{#*inline "before-script"}}{{/inline}} {{#*inline "after-script"}}{{/inline}}
 
 {{/layouts/main}}

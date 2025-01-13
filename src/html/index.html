@@ -1,7 +1,9 @@
 {{#> layouts/main activeLink='Dashboard'}}
 
+{{#*inline "styles"}}{{/inline}}
+
 {{#* inline "header"}}
-<h1 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Dashboard</h1>
+<h2 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Dashboard</h2>
 
 <a
     href="https://github.com/Kamona-WD/starter-dashboard-layout"
@@ -15,6 +17,188 @@
 </a>
 {{/inline}}
 
-<!--  -->
+<h1 class="sr-only"></h1>
 
+<!-- Chart cards (Four columns grid) -->
+<section class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <h2 class="sr-only">quick Statistics</h2>
+
+    {{#each charts.quickStatisticsCharts}}
+    <!-- {{ title }} chart card -->
+    {{> partials/quick-statistics-card }}
+    {{/each}}
+</section>
+
+<!-- Two columns grid -->
+<section class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
+    <h2 class="sr-only"></h2>
+    <!-- Import data card -->
+    <div class="rounded-lg border shadow-sm">
+        <!-- Card header -->
+        <div class="flex items-center justify-between border-b px-4 py-2">
+            <h5 class="font-semibold">Import Data</h5>
+            <!-- Actions button -->
+            <div class="relative" x-data="{ open: false }">
+                <button
+                    type="button"
+                    class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                    @click="open = !open"
+                >
+                    <span class="sr-only">Card Actions</span>
+
+                    <span class="iconify h-5 w-5 tabler--dots"></span>
+                </button>
+
+                <div
+                    x-cloak
+                    x-show="open"
+                    @click.away="open = false"
+                    class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
+                >
+                    <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
+                        <a
+                            href="#"
+                            class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                        >
+                            Action 1
+                        </a>
+
+                        <a
+                            href="#"
+                            class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                        >
+                            Action 2
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="px-4 py-6 text-gray-600">See and talk to your users and import them into your platform.</p>
+        <ul class="space-y-4 divide-y px-4 pb-4">
+            <h5 class="font-semibold">Import Users from:</h5>
+            <li class="flex items-start justify-between pt-4">
+                <div class="flex items-start space-x-3">
+                    <!-- Twitter icon -->
+                    <span class="flex items-center pt-1">
+                        <span
+                            aria-hidden="true"
+                            class="iconify h-5 w-5 text-blue-500 tabler--brand-twitter-filled"
+                        ></span>
+                    </span>
+                    <div>
+                        <h5 class="font-semibold">Twitter</h5>
+                        <span class="text-sm font-medium text-gray-400">Users</span>
+                    </div>
+                </div>
+                <a
+                    href="#"
+                    class="flex items-center gap-2 rounded-md bg-blue-600 px-2 py-1 text-sm text-white hover:bg-blue-500"
+                >
+                    <span>Launch</span>
+                    <span aria-hidden="true" class="iconify tabler--outbound"></span>
+                </a>
+            </li>
+            <li class="flex items-start justify-between pt-4">
+                <div class="flex items-start space-x-3">
+                    <!-- Github icon -->
+                    <span class="flex items-center pt-1">
+                        <span aria-hidden="true" class="iconify text-black tabler--brand-github-filled"></span>
+                    </span>
+                    <div>
+                        <h5 class="font-semibold">Github</h5>
+                        <span class="text-sm font-medium text-gray-400">Users</span>
+                    </div>
+                </div>
+                <a
+                    href="#"
+                    class="flex items-center gap-2 rounded-md bg-blue-600 px-2 py-1 text-sm text-white hover:bg-blue-500"
+                >
+                    <span>Launch</span>
+                    <span aria-hidden="true" class="iconify tabler--outbound"></span>
+                </a>
+            </li>
+            <li class="pt-4 text-sm font-medium text-gray-400">
+                <p>
+                    Or you can
+                    <a href="#" class="whitespace-nowrap font-normal text-blue-500 hover:underline">
+                        sync data to your dashboard
+                    </a>
+                    to ensure data is always up to date.
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Bar chart card -->
+    <div class="rounded-lg border shadow-sm xl:col-span-3">
+        <!-- Card header -->
+        <div class="flex items-center justify-between border-b px-4 py-2">
+            <h5 class="font-semibold">Monthly Expenses</h5>
+            <!-- Actions button -->
+            <div class="relative" x-data="{ open: false }">
+                <button
+                    type="button"
+                    class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                    @click="open = !open"
+                >
+                    <span class="sr-only">Card Actions</span>
+
+                    <span class="iconify h-5 w-5 tabler--dots"></span>
+                </button>
+
+                <div
+                    x-cloak
+                    x-show="open"
+                    @click.away="open = false"
+                    class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
+                >
+                    <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
+                        <a
+                            href="#"
+                            class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                        >
+                            Action 1
+                        </a>
+
+                        <a
+                            href="#"
+                            class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                        >
+                            Action 2
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card content -->
+        <div class="flex items-center space-x-4 p-4">
+            <span class="text-3xl font-medium">45%</span>
+            <span class="flex items-center space-x-2 rounded bg-green-100 px-2 text-sm text-green-800">
+                <span>
+                    <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+                        <path
+                            fill-rule="evenodd"
+                            d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
+                            clip-rule="evenodd"
+                        ></path>
+                    </svg>
+                </span>
+                <span>39.2%</span>
+            </span>
+        </div>
+
+        <!-- Bar chart -->
+        <div x-data="barChart($refs.barChartEl)" class="h-80 overflow-hidden p-4">
+            <div x-ref="barChartEl"></div>
+        </div>
+    </div>
+</section>
+
+{{#*inline "before-script"}}
+<script type="module" src="{{ resolve-from-root '../js/demo/chart.js' }}"></script>
+{{/inline}}
+
+{{#*inline "after-script"}}
+{{/inline}}
 {{/layouts/main}}

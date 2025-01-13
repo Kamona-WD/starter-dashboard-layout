@@ -2,6 +2,8 @@ import Alpine from 'alpinejs'
 import AlpineCollapse from '@alpinejs/collapse'
 import AlpineFocus from '@alpinejs/focus'
 
+window.Alpine = Alpine
+
 Alpine.data('setup', () => {
     return {
         loading: true,
@@ -26,4 +28,4 @@ Alpine.store('search', {
 Alpine.plugin(AlpineCollapse)
 Alpine.plugin(AlpineFocus)
 
-Alpine.start()
+// Alpine.start()

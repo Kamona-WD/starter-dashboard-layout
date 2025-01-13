@@ -17,7 +17,8 @@
             }
         </style>
 
-        <script type="module" crossorigin src="/assets/main-CSI4CcnT.js"></script>
+        <script type="module" crossorigin src="/js/index-page-ClxJ3RUF.js"></script>
+        <link rel="modulepreload" crossorigin href="/js/main-Dq7bZAZ0.js" />
         <link rel="stylesheet" crossorigin href="/css/main.css" />
     </head>
     <body class="font-sans antialiased">
@@ -35,7 +36,7 @@
                 <div
                     x-show.in.out.opacity="isSidebarOpen"
                     @click="isSidebarOpen = false"
-                    class="fixed inset-0 z-10 bg-black/60 backdrop-blur-lg lg:hidden"
+                    class="fixed inset-0 z-40 bg-black/60 backdrop-blur-lg lg:hidden"
                 ></div>
 
                 <!-- Sidebar -->
@@ -46,7 +47,7 @@
                     x-transition:leave="transition transform duration-300"
                     x-transition:leave-start="translate-x-0 opacity-100 ease-out"
                     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-                    class="fixed inset-y-0 z-10 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
+                    class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
                     :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
                 >
                     <!-- sidebar header -->
@@ -57,21 +58,12 @@
                         <span class="whitespace-nowrap p-2 text-xl font-semibold uppercase leading-8 tracking-wider">
                             K<span :class="{'lg:hidden': !isSidebarOpen}">-WD</span>
                         </span>
-                        <button @click="toggleSidbarMenu()" class="rounded-md p-2 lg:hidden">
-                            <svg
-                                class="h-6 w-6 text-gray-600"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
-                            </svg>
+                        <button
+                            @click="toggleSidbarMenu()"
+                            class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 lg:hidden"
+                        >
+                            <span aria-hidden="true" class="iconify h-6 w-6 tabler--x"></span>
+                            <span class="sr-only">Close</span>
                         </button>
                     </div>
 
@@ -162,7 +154,7 @@
                 </aside>
 
                 <div class="flex min-h-screen flex-1 flex-col">
-                    <nav class="sticky top-0 flex-shrink-0 border-b bg-white px-4 py-2 sm:px-6">
+                    <nav class="sticky top-0 z-10 flex-shrink-0 border-b bg-white px-4 py-2 sm:px-6">
                         <div class="container mx-auto">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-3">
@@ -259,7 +251,7 @@
                         <header
                             class="container mx-auto flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center"
                         >
-                            <h1 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Dashboard</h1>
+                            <h2 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Dashboard</h2>
 
                             <a
                                 href="https://github.com/Kamona-WD/starter-dashboard-layout"
@@ -276,14 +268,324 @@
 
                     <!-- Main content -->
                     <main class="flex-1 p-4 sm:p-6">
-                        <div class="container mx-auto">
+                        <div class="container mx-auto grid gap-4">
                             <!-- Page Content -->
 
-                            <!--  -->
+                            <h1 class="sr-only"></h1>
+
+                            <!-- Chart cards (Four columns grid) -->
+                            <section class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+                                <h2 class="sr-only">quick Statistics</h2>
+
+                                <!-- Customers chart card -->
+                                <a
+                                    href="#"
+                                    class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex flex-shrink-0 flex-col space-y-2">
+                                            <div class="flex items-center gap-1">
+                                                <span
+                                                    aria-hidden="true"
+                                                    class="iconify h-6 w-6 text-gray-400 tabler--users-group"
+                                                ></span>
+                                                <span class="text-gray-600">Customers</span>
+                                            </div>
+                                            <span class="text-lg font-semibold">12.4k</span>
+                                        </div>
+
+                                        <div
+                                            x-data="quickStatisticsChart($refs.quickStatisticsChartEl, 'Customers')"
+                                            class="ml-auto h-14 min-w-0"
+                                        >
+                                            <div x-ref="quickStatisticsChartEl"></div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="flex items-center gap-1">
+                                            <span class="iconify h-5 w-5 text-green-500 tabler--trending-up"></span>
+                                            <span class="text-xs font-medium text-green-500">32.40%</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- Visits chart card -->
+                                <a
+                                    href="#"
+                                    class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex flex-shrink-0 flex-col space-y-2">
+                                            <div class="flex items-center gap-1">
+                                                <span
+                                                    aria-hidden="true"
+                                                    class="iconify h-6 w-6 text-gray-400 tabler--eye"
+                                                ></span>
+                                                <span class="text-gray-600">Visits</span>
+                                            </div>
+                                            <span class="text-lg font-semibold">-2.6k</span>
+                                        </div>
+
+                                        <div
+                                            x-data="quickStatisticsChart($refs.quickStatisticsChartEl, 'Visits')"
+                                            class="ml-auto h-14 min-w-0"
+                                        >
+                                            <div x-ref="quickStatisticsChartEl"></div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="flex items-center gap-1">
+                                            <span class="iconify h-5 w-5 text-red-500 tabler--trending-down"></span>
+                                            <span class="text-xs font-medium text-red-500">-2.10%</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- Orders chart card -->
+                                <a
+                                    href="#"
+                                    class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex flex-shrink-0 flex-col space-y-2">
+                                            <div class="flex items-center gap-1">
+                                                <span
+                                                    aria-hidden="true"
+                                                    class="iconify h-6 w-6 text-gray-400 tabler--shopping-cart"
+                                                ></span>
+                                                <span class="text-gray-600">Orders</span>
+                                            </div>
+                                            <span class="text-lg font-semibold">34.4k</span>
+                                        </div>
+
+                                        <div
+                                            x-data="quickStatisticsChart($refs.quickStatisticsChartEl, 'Orders')"
+                                            class="ml-auto h-14 min-w-0"
+                                        >
+                                            <div x-ref="quickStatisticsChartEl"></div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="flex items-center gap-1">
+                                            <span class="iconify h-5 w-5 text-yellow-500 tabler--minus"></span>
+                                            <span class="text-xs font-medium text-yellow-500">0.60%</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- Growth chart card -->
+                                <a
+                                    href="#"
+                                    class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex flex-shrink-0 flex-col space-y-2">
+                                            <div class="flex items-center gap-1">
+                                                <span
+                                                    aria-hidden="true"
+                                                    class="iconify h-6 w-6 text-gray-400 tabler--chart-pie"
+                                                ></span>
+                                                <span class="text-gray-600">Growth</span>
+                                            </div>
+                                            <span class="text-lg font-semibold">15.6%</span>
+                                        </div>
+
+                                        <div
+                                            x-data="quickStatisticsChart($refs.quickStatisticsChartEl, 'Growth')"
+                                            class="ml-auto h-14 min-w-0"
+                                        >
+                                            <div x-ref="quickStatisticsChartEl"></div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="flex items-center gap-1">
+                                            <span class="iconify h-5 w-5 text-green-500 tabler--trending-up"></span>
+                                            <span class="text-xs font-medium text-green-500">7.20%</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </section>
+
+                            <!-- Two columns grid -->
+                            <section class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
+                                <h2 class="sr-only"></h2>
+                                <!-- Import data card -->
+                                <div class="rounded-lg border shadow-sm">
+                                    <!-- Card header -->
+                                    <div class="flex items-center justify-between border-b px-4 py-2">
+                                        <h5 class="font-semibold">Import Data</h5>
+                                        <!-- Actions button -->
+                                        <div class="relative" x-data="{ open: false }">
+                                            <button
+                                                type="button"
+                                                class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                                                @click="open = !open"
+                                            >
+                                                <span class="sr-only">Card Actions</span>
+
+                                                <span class="iconify h-5 w-5 tabler--dots"></span>
+                                            </button>
+
+                                            <div
+                                                x-cloak
+                                                x-show="open"
+                                                @click.away="open = false"
+                                                class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
+                                            >
+                                                <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
+                                                    <a
+                                                        href="#"
+                                                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                    >
+                                                        Action 1
+                                                    </a>
+
+                                                    <a
+                                                        href="#"
+                                                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                    >
+                                                        Action 2
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="px-4 py-6 text-gray-600">
+                                        See and talk to your users and import them into your platform.
+                                    </p>
+                                    <ul class="space-y-4 divide-y px-4 pb-4">
+                                        <h5 class="font-semibold">Import Users from:</h5>
+                                        <li class="flex items-start justify-between pt-4">
+                                            <div class="flex items-start space-x-3">
+                                                <!-- Twitter icon -->
+                                                <span class="flex items-center pt-1">
+                                                    <span
+                                                        aria-hidden="true"
+                                                        class="iconify h-5 w-5 text-blue-500 tabler--brand-twitter-filled"
+                                                    ></span>
+                                                </span>
+                                                <div>
+                                                    <h5 class="font-semibold">Twitter</h5>
+                                                    <span class="text-sm font-medium text-gray-400">Users</span>
+                                                </div>
+                                            </div>
+                                            <a
+                                                href="#"
+                                                class="flex items-center gap-2 rounded-md bg-blue-600 px-2 py-1 text-sm text-white hover:bg-blue-500"
+                                            >
+                                                <span>Launch</span>
+                                                <span aria-hidden="true" class="iconify tabler--outbound"></span>
+                                            </a>
+                                        </li>
+                                        <li class="flex items-start justify-between pt-4">
+                                            <div class="flex items-start space-x-3">
+                                                <!-- Github icon -->
+                                                <span class="flex items-center pt-1">
+                                                    <span
+                                                        aria-hidden="true"
+                                                        class="iconify text-black tabler--brand-github-filled"
+                                                    ></span>
+                                                </span>
+                                                <div>
+                                                    <h5 class="font-semibold">Github</h5>
+                                                    <span class="text-sm font-medium text-gray-400">Users</span>
+                                                </div>
+                                            </div>
+                                            <a
+                                                href="#"
+                                                class="flex items-center gap-2 rounded-md bg-blue-600 px-2 py-1 text-sm text-white hover:bg-blue-500"
+                                            >
+                                                <span>Launch</span>
+                                                <span aria-hidden="true" class="iconify tabler--outbound"></span>
+                                            </a>
+                                        </li>
+                                        <li class="pt-4 text-sm font-medium text-gray-400">
+                                            <p>
+                                                Or you can
+                                                <a
+                                                    href="#"
+                                                    class="whitespace-nowrap font-normal text-blue-500 hover:underline"
+                                                >
+                                                    sync data to your dashboard
+                                                </a>
+                                                to ensure data is always up to date.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Bar chart card -->
+                                <div class="rounded-lg border shadow-sm xl:col-span-3">
+                                    <!-- Card header -->
+                                    <div class="flex items-center justify-between border-b px-4 py-2">
+                                        <h5 class="font-semibold">Monthly Expenses</h5>
+                                        <!-- Actions button -->
+                                        <div class="relative" x-data="{ open: false }">
+                                            <button
+                                                type="button"
+                                                class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                                                @click="open = !open"
+                                            >
+                                                <span class="sr-only">Card Actions</span>
+
+                                                <span class="iconify h-5 w-5 tabler--dots"></span>
+                                            </button>
+
+                                            <div
+                                                x-cloak
+                                                x-show="open"
+                                                @click.away="open = false"
+                                                class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
+                                            >
+                                                <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
+                                                    <a
+                                                        href="#"
+                                                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                    >
+                                                        Action 1
+                                                    </a>
+
+                                                    <a
+                                                        href="#"
+                                                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                    >
+                                                        Action 2
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card content -->
+                                    <div class="flex items-center space-x-4 p-4">
+                                        <span class="text-3xl font-medium">45%</span>
+                                        <span
+                                            class="flex items-center space-x-2 rounded bg-green-100 px-2 text-sm text-green-800"
+                                        >
+                                            <span>
+                                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
+                                                        clip-rule="evenodd"
+                                                    ></path>
+                                                </svg>
+                                            </span>
+                                            <span>39.2%</span>
+                                        </span>
+                                    </div>
+
+                                    <!-- Bar chart -->
+                                    <div x-data="barChart($refs.barChartEl)" class="h-80 overflow-hidden p-4">
+                                        <div x-ref="barChartEl"></div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </main>
 
-                    <!-- Main footer -->
+                    <!-- Footer -->
                     <footer class="sticky bottom-0 flex-shrink-0 border-t bg-white px-4 py-4 sm:px-6 md:max-h-14">
                         <div
                             class="container mx-auto flex flex-col-reverse items-center justify-between gap-1 md:flex-row"
@@ -418,7 +720,7 @@
                 x-transition:leave="transition transform duration-300"
                 x-transition:leave-start="translate-x-0 opacity-100 ease-out"
                 x-transition:leave-end="translate-x-full opacity-0 ease-in"
-                class="fixed inset-y-0 right-0 flex w-80 flex-col bg-white shadow-lg"
+                class="fixed inset-y-0 right-0 z-40 flex w-80 flex-col bg-white shadow-lg"
             >
                 <div class="flex flex-shrink-0 items-center justify-between p-2">
                     <h6 class="p-2 text-lg">Settings</h6>

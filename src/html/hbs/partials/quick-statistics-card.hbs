@@ -1,0 +1,30 @@
+<a href="{{ url }}" class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg">
+    <div class="flex items-center gap-2">
+        <div class="flex flex-shrink-0 flex-col space-y-2">
+            <div class="flex items-center gap-1">
+                <span aria-hidden="true" class="iconify {{ icon }} w-6 h-6 text-gray-400"></span>
+                <span class="text-gray-600">{{ title }}</span>
+            </div>
+            <span class="text-lg font-semibold">{{ total }}</span>
+        </div>
+
+        <div x-data="quickStatisticsChart($refs.quickStatisticsChartEl, '{{ title }}')" class="ml-auto h-14 min-w-0">
+            <div x-ref="quickStatisticsChartEl"></div>
+        </div>
+    </div>
+
+    <div>
+        <div class="flex items-center gap-1">
+            {{#if (eq status "up")}}
+            <span class="iconify h-5 w-5 text-green-500 tabler--trending-up"></span>
+            <span class="text-xs font-medium text-green-500">{{ percentage }}</span>
+            {{else if (eq status "down")}}
+            <span class="iconify h-5 w-5 text-red-500 tabler--trending-down"></span>
+            <span class="text-xs font-medium text-red-500">{{ percentage }}</span>
+            {{else}}
+            <span class="iconify h-5 w-5 text-yellow-500 tabler--minus"></span>
+            <span class="text-xs font-medium text-yellow-500">{{ percentage }}</span>
+            {{/if}}
+        </div>
+    </div>
+</a>

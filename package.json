@@ -30,6 +30,7 @@
     "@iconify/tailwind": "^1.2.0",
     "@tailwindcss/forms": "^0.5.9",
     "alpinejs": "^3.14.8",
+    "apexcharts": "^4.3.0",
     "autoprefixer": "^10.4.20",
     "gh-pages": "^6.3.0",
     "perfect-scrollbar": "^1.5.6",

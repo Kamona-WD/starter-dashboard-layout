@@ -6,12 +6,17 @@ import data from './src/data'
 
 const root = 'src/html'
 
-const entries = {}
-const htmlPages = glob.sync(`${root}/**/*.html`).forEach(p => {
-    let relPath = relative(root, p)
+const entries = () => {
+    const entries = {}
 
-    entries[relPath] = p
-})
+    const htmlFiles = glob.sync(`${root}/**/*.html`).forEach(p => {
+        let relPath = relative(root, p)
+
+        entries[relPath] = p
+    })
+
+    return entries
+}
 
 export default defineConfig({
     plugins: [
@@ -43,13 +48,14 @@ export default defineConfig({
         },
     },
     optimizeDeps: {
-        entries: Object.keys(entries),
+        entries: Object.keys(entries()),
     },
+    
     build: {
         target: 'esnext',
         outDir: resolve(__dirname, 'dist'),
         rollupOptions: {
-            input: entries,
+            input: entries(),
             output: {
                 assetFileNames: (chunkInfo) => {
                      let outDir = ''
@@ -58,7 +64,13 @@ export default defineConfig({
                         outDir = 'css'
                     }
                     
-                    return `${outDir}/[name][extname]`;
+                    return `${outDir}/[name][extname]`
+                },
+                chunkFileNames: 'js/[name]-[hash].js',
+                entryFileNames: (e) => {
+                    let name = e.name.split('/').pop().replace('.html', '-page')
+
+                    return `js/${name}-[hash].js`
                 },
             }
         },

@@ -2,7 +2,7 @@
 <div
     x-show.in.out.opacity="isSidebarOpen"
     @click="isSidebarOpen = false"
-    class="fixed inset-0 z-10 bg-black/60 backdrop-blur-lg lg:hidden"
+    class="fixed inset-0 z-40 bg-black/60 backdrop-blur-lg lg:hidden"
 ></div>
 
 <!-- Sidebar -->
@@ -13,7 +13,7 @@
     x-transition:leave="transition transform duration-300"
     x-transition:leave-start="translate-x-0 opacity-100 ease-out"
     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-    class="fixed inset-y-0 z-10 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
+    class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
     :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
 >
     <!-- sidebar header -->
@@ -21,16 +21,12 @@
         <span class="whitespace-nowrap p-2 text-xl font-semibold uppercase leading-8 tracking-wider">
             K<span :class="{'lg:hidden': !isSidebarOpen}">-WD</span>
         </span>
-        <button @click="toggleSidbarMenu()" class="rounded-md p-2 lg:hidden">
-            <svg
-                class="h-6 w-6 text-gray-600"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-            >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+        <button
+            @click="toggleSidbarMenu()"
+            class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 lg:hidden"
+        >
+            <span aria-hidden="true" class="iconify h-6 w-6 tabler--x"></span>
+            <span class="sr-only">Close</span>
         </button>
     </div>
 

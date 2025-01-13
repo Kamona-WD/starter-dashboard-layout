@@ -18,6 +18,8 @@
         </style>
 
         <link rel="stylesheet" href="{{ resolve-from-root '../css/main.css' }}" />
+
+        {{> styles}}
     </head>
     <body class="font-sans antialiased">
         <div x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
@@ -40,7 +42,7 @@
 
                     <!-- Main content -->
                     <main class="flex-1 p-4 sm:p-6">
-                        <div class="container mx-auto">
+                        <div class="container mx-auto grid gap-4">
                             <!-- Page Content -->
                             {{> @partial-block }}
                         </div>
@@ -63,7 +65,7 @@
                 x-transition:leave="transition transform duration-300"
                 x-transition:leave-start="translate-x-0 opacity-100 ease-out"
                 x-transition:leave-end="translate-x-full opacity-0 ease-in"
-                class="fixed inset-y-0 right-0 flex w-80 flex-col bg-white shadow-lg"
+                class="fixed inset-y-0 right-0 z-40 flex w-80 flex-col bg-white shadow-lg"
             >
                 <div class="flex flex-shrink-0 items-center justify-between p-2">
                     <h6 class="p-2 text-lg">Settings</h6>
@@ -86,6 +88,12 @@
             </div>
         </div>
 
+        {{> before-script}}
         <script type="module" src="{{ resolve-from-root '../js/main.js' }}"></script>
+        {{> after-script}}
+
+        <script type="module">
+            window.Alpine && window.Alpine.start()
+        </script>
     </body>
 </html>
