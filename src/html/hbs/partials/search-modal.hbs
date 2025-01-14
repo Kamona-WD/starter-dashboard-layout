@@ -4,7 +4,7 @@
     :class="{ 'z-40': $store.search.isOpen }"
     class="relative h-auto w-auto"
 >
-    <template x-teleport="body">
+    <template x-teleport="#app">
         <div
             x-show="$store.search.isOpen"
             class="fixed inset-0 z-[99] flex h-screen w-screen items-start justify-center sm:py-10"
@@ -19,7 +19,7 @@
                 x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
                 @click="$store.search.close()"
-                class="absolute inset-0 h-full w-full bg-black/50 backdrop-blur-lg"
+                class="absolute inset-0 h-full w-full bg-black/50 backdrop-blur-md"
             ></div>
 
             <div
@@ -31,7 +31,7 @@
                 x-transition:leave="ease-in duration-200"
                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                class="z-[99] w-full bg-white shadow-lg sm:max-w-lg sm:rounded-md"
+                class="z-[99] w-full bg-white shadow-lg dark:bg-dark-2 sm:max-w-lg sm:rounded-md"
             >
                 <div
                     class="relative overflow-hidden border-b border-black text-gray-500 focus-within:text-gray-900 dark:focus-within:text-gray-400 sm:rounded-t-md"
@@ -61,7 +61,7 @@
                     </button>
                 </div>
 
-                <div class="bo max-h-[320px] overflow-y-auto overflow-x-hidden p-4">
+                <div class="max-h-[320px] overflow-y-auto overflow-x-hidden p-4">
                     <div class="space-y-1 pb-1">
                         <div class="overflow-hidden px-1 text-gray-700">
                             <div class="my-1 px-2 py-1 text-xs font-medium text-neutral-500">Category</div>

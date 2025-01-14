@@ -17,12 +17,17 @@
             }
         </style>
 
-        <script type="module" crossorigin src="/js/index-page-132ypgux.js"></script>
-        <link rel="modulepreload" crossorigin href="/js/main-C5yvc9-5.js" />
+        <script type="module" crossorigin src="/js/index-page-DaLTsFZd.js"></script>
+        <link rel="modulepreload" crossorigin href="/js/main-DqJc7cvk.js" />
         <link rel="stylesheet" crossorigin href="/css/main.css" />
     </head>
     <body class="font-sans antialiased">
-        <div x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
+        <div
+            id="app"
+            x-data="setup()"
+            x-init="$refs.loading.classList.add('hidden')"
+            :class="{ 'dark': $store.darkMode.value }"
+        >
             <!-- Loading screen -->
             <div
                 x-ref="loading"
@@ -31,7 +36,7 @@
                 Loading.....
             </div>
 
-            <div class="flex">
+            <div class="flex bg-white text-gray-800 dark:bg-dark-0 dark:text-gray-200">
                 <!-- Sidebar overlay -->
                 <div
                     x-show.in.out.opacity="isSidebarOpen"
@@ -47,7 +52,7 @@
                     x-transition:leave="transition transform duration-300"
                     x-transition:leave-start="translate-x-0 opacity-100 ease-out"
                     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-                    class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
+                    class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all dark:border-gray-700 dark:bg-dark-1 lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
                     :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
                 >
                     <!-- sidebar header -->
@@ -58,12 +63,14 @@
                         <span class="whitespace-nowrap p-2 text-xl font-semibold uppercase leading-8 tracking-wider">
                             K<span :class="{'lg:hidden': !isSidebarOpen}">-WD</span>
                         </span>
+
                         <button
                             @click="toggleSidbarMenu()"
-                            class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 lg:hidden"
+                            type="button"
+                            class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-transparent p-2 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-300 dark:hover:bg-dark-0 dark:focus:ring-offset-dark-1 lg:hidden"
                         >
+                            <span class="sr-only">Close sidebar</span>
                             <span aria-hidden="true" class="iconify h-6 w-6 tabler--x"></span>
-                            <span class="sr-only">Close</span>
                         </button>
                     </div>
 
@@ -73,7 +80,7 @@
                             <li>
                                 <a
                                     href="/index.html"
-                                    class="flex items-center gap-2 rounded-md bg-black p-2 text-white transition-colors hover:bg-gray-800"
+                                    class="flex items-center gap-2 rounded-md bg-black p-2 text-white transition-colors hover:bg-gray-800 dark:hover:bg-gray-900"
                                     :class="{'justify-center': !isSidebarOpen}"
                                 >
                                     <span
@@ -121,14 +128,14 @@
 
                                 <div x-show="open && isSidebarOpen" x-collapse>
                                     <ul
-                                        class="relative ml-5 px-0 pb-0 pt-2 before:absolute before:inset-y-0 before:left-0 before:block before:w-0 before:border-l-2 before:border-l-gray-200"
+                                        class="relative ml-5 px-0 pb-0 pt-2 before:absolute before:inset-y-0 before:left-0 before:block before:w-0 before:border-l-2 before:border-l-gray-200 dark:before:border-l-gray-600"
                                     >
                                         <li
-                                            class="relative m-0 ps-6 leading-8 before:absolute before:left-0 before:top-4 before:-mt-0.5 before:block before:h-0 before:w-4 before:border-t-2 before:border-t-gray-200 last:before:bottom-0 last:before:top-4 last:before:h-auto last:before:bg-white"
+                                            class="relative m-0 ps-6 leading-normal before:absolute before:left-0 before:top-4 before:-mt-0.5 before:block before:h-0 before:w-4 before:border-t-2 before:border-t-gray-200 last:before:bottom-0 last:before:top-4 last:before:h-auto last:before:bg-white dark:before:border-t-gray-600 dark:last:before:bg-dark-1"
                                         >
                                             <a
                                                 href="/blank.html"
-                                                class="text-gray-500 transition-colors hover:text-gray-900"
+                                                class="inline-block text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400"
                                             >
                                                 Blank
                                             </a>
@@ -140,9 +147,10 @@
                     </nav>
 
                     <!-- Sidebar footer -->
-                    <div class="max-h-14 flex-shrink-0 border-t p-2">
+                    <div class="max-h-14c flex-shrink-0 border-t p-2 dark:border-gray-600">
                         <button
-                            class="flex w-full items-center justify-center gap-1 rounded-md border bg-black px-4 py-2 font-medium text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white"
+                            type="button"
+                            class="inline-flex w-full select-none items-center justify-center gap-2 rounded-md bg-black px-4 py-2 font-medium text-gray-200 transition-colors hover:bg-gray-900 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-offset-dark-1"
                         >
                             <span aria-hidden="true" class="iconify h-6 w-6 flex-shrink-0 tabler--sparkles"></span>
 
@@ -154,17 +162,20 @@
                 </aside>
 
                 <div class="flex min-h-screen flex-1 flex-col">
-                    <nav class="sticky top-0 z-10 flex-shrink-0 border-b bg-white px-4 py-2 sm:px-6">
+                    <nav
+                        class="sticky top-0 z-10 flex-shrink-0 border-b bg-white px-4 py-2 dark:border-gray-600 dark:bg-dark-1 sm:px-6"
+                    >
                         <div class="container mx-auto">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-3">
                                     <span class="text-xl font-semibold uppercase tracking-wider lg:hidden">K-WD</span>
 
                                     <!-- Toggle sidebar button -->
+
                                     <button
-                                        type="button"
-                                        class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
                                         @click="toggleSidbarMenu()"
+                                        type="button"
+                                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
                                     >
                                         <span class="sr-only">Toggle sidebar</span>
 
@@ -176,35 +187,57 @@
                                     </button>
 
                                     <!-- Search button -->
+
                                     <button
                                         @click="$store.search.open()"
                                         type="button"
-                                        class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
                                     >
                                         <span class="sr-only">Search</span>
-
                                         <span aria-hidden="true" class="iconify h-6 w-6 tabler--search"></span>
                                     </button>
                                 </div>
 
                                 <div class="flex items-center gap-3">
+                                    <!-- Dark mode button -->
+
+                                    <button
+                                        @click="$store.darkMode.toggle()"
+                                        type="button"
+                                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
+                                    >
+                                        <span class="sr-only">Toggle dark mode</span>
+
+                                        <!-- Moon icon -->
+                                        <span
+                                            x-show="!$store.darkMode.value"
+                                            class="iconify h-6 w-6 tabler--moon"
+                                        ></span>
+
+                                        <!-- Sun icon -->
+                                        <span x-show="$store.darkMode.value" class="iconify h-6 w-6 tabler--sun"></span>
+                                    </button>
+
                                     <!-- Settings button -->
+
                                     <button
                                         @click="isSettingsPanelOpen = true"
                                         type="button"
-                                        class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
                                     >
                                         <span class="sr-only">Settings</span>
-
-                                        <span class="iconify h-6 w-6 tabler--settings-cog"></span>
+                                        <span aria-hidden="true" class="iconify h-6 w-6 tabler--settings"></span>
                                     </button>
 
                                     <!-- User dropdown menu -->
                                     <div class="relative" x-data="{ isOpen: false }">
                                         <button
                                             @click="isOpen = !isOpen"
-                                            class="inline-flex overflow-hidden rounded-md focus:outline-none focus:ring focus:ring-black focus:ring-offset-1 focus:ring-offset-white"
+                                            type="button"
+                                            class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-0 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
                                         >
+                                            <span class="sr-only">User avatar</span>
+
                                             <img
                                                 class="h-10 w-10 rounded-md object-cover"
                                                 src="/images/avatar.jpeg"
@@ -247,7 +280,7 @@
                     </nav>
 
                     <!-- Page header -->
-                    <div class="border-b bg-white px-4 py-2 sm:px-6 sm:py-4">
+                    <div class="border-b px-4 py-2 dark:border-gray-600 sm:px-6 sm:py-4">
                         <header
                             class="container mx-auto flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center"
                         >
@@ -280,7 +313,7 @@
                                 <!-- Customers chart card -->
                                 <a
                                     href="#"
-                                    class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
+                                    class="overflow-hidden rounded-lg border bg-white p-4 shadow-sm transition-shadow hover:shadow-lg dark:border-gray-600 dark:bg-dark-1"
                                 >
                                     <div class="flex items-center gap-2">
                                         <div class="flex flex-shrink-0 flex-col space-y-2">
@@ -312,7 +345,7 @@
                                 <!-- Visits chart card -->
                                 <a
                                     href="#"
-                                    class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
+                                    class="overflow-hidden rounded-lg border bg-white p-4 shadow-sm transition-shadow hover:shadow-lg dark:border-gray-600 dark:bg-dark-1"
                                 >
                                     <div class="flex items-center gap-2">
                                         <div class="flex flex-shrink-0 flex-col space-y-2">
@@ -344,7 +377,7 @@
                                 <!-- Orders chart card -->
                                 <a
                                     href="#"
-                                    class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
+                                    class="overflow-hidden rounded-lg border bg-white p-4 shadow-sm transition-shadow hover:shadow-lg dark:border-gray-600 dark:bg-dark-1"
                                 >
                                     <div class="flex items-center gap-2">
                                         <div class="flex flex-shrink-0 flex-col space-y-2">
@@ -376,7 +409,7 @@
                                 <!-- Growth chart card -->
                                 <a
                                     href="#"
-                                    class="overflow-hidden rounded-lg border p-4 shadow-sm transition-shadow hover:shadow-lg"
+                                    class="overflow-hidden rounded-lg border bg-white p-4 shadow-sm transition-shadow hover:shadow-lg dark:border-gray-600 dark:bg-dark-1"
                                 >
                                     <div class="flex items-center gap-2">
                                         <div class="flex flex-shrink-0 flex-col space-y-2">
@@ -411,20 +444,22 @@
                             <section class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
                                 <h2 class="sr-only">Import data</h2>
                                 <!-- Import data card -->
-                                <div class="rounded-lg border shadow-sm">
+                                <div class="rounded-lg border bg-white shadow-sm dark:border-gray-600 dark:bg-dark-1">
                                     <!-- Card header -->
-                                    <div class="flex items-center justify-between border-b px-4 py-2">
+                                    <div
+                                        class="flex items-center justify-between border-b px-4 py-2 dark:border-gray-600"
+                                    >
                                         <h5 class="font-semibold">Import Data</h5>
-                                        <!-- Actions button -->
+
+                                        <!-- Actions menu -->
                                         <div class="relative" x-data="{ open: false }">
                                             <button
-                                                type="button"
-                                                class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
                                                 @click="open = !open"
+                                                type="button"
+                                                class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-transparent p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-300 dark:hover:bg-dark-0 dark:focus:ring-offset-dark-1"
                                             >
                                                 <span class="sr-only">Card Actions</span>
-
-                                                <span class="iconify h-5 w-5 tabler--dots"></span>
+                                                <span aria-hidden="true" class="iconify h-6 w-6 tabler--dots"></span>
                                             </button>
 
                                             <div
@@ -433,17 +468,19 @@
                                                 @click.away="open = false"
                                                 class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
                                             >
-                                                <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
+                                                <div
+                                                    class="rounded-md bg-white py-1 ring-1 ring-black/20 dark:bg-dark-0"
+                                                >
                                                     <a
                                                         href="#"
-                                                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                        class="focus:bg-primary block px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-400 dark:hover:text-white dark:focus:bg-black dark:focus:text-white"
                                                     >
                                                         Action 1
                                                     </a>
 
                                                     <a
                                                         href="#"
-                                                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                        class="focus:bg-primary block px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-400 dark:hover:text-white dark:focus:bg-black dark:focus:text-white"
                                                     >
                                                         Action 2
                                                     </a>
@@ -451,10 +488,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="px-4 py-6 text-gray-600">
+
+                                    <p class="px-4 py-6 text-gray-600 dark:text-gray-400">
                                         See and talk to your users and import them into your platform.
                                     </p>
-                                    <ul class="space-y-4 divide-y px-4 pb-4">
+
+                                    <ul class="space-y-4 divide-y px-4 pb-4 dark:divide-gray-600">
                                         <h5 class="font-semibold">Import Users from:</h5>
                                         <li class="flex items-start justify-between pt-4">
                                             <div class="flex items-start space-x-3">
@@ -516,20 +555,24 @@
                                 </div>
 
                                 <!-- Bar chart card -->
-                                <div class="rounded-lg border shadow-sm xl:col-span-3">
+                                <div
+                                    class="rounded-lg border bg-white shadow-sm dark:border-gray-600 dark:bg-dark-1 xl:col-span-3"
+                                >
                                     <!-- Card header -->
-                                    <div class="flex items-center justify-between border-b px-4 py-2">
+                                    <div
+                                        class="flex items-center justify-between border-b px-4 py-2 dark:border-gray-600"
+                                    >
                                         <h5 class="font-semibold">Monthly Expenses</h5>
-                                        <!-- Actions button -->
+
+                                        <!-- Actions menu -->
                                         <div class="relative" x-data="{ open: false }">
                                             <button
-                                                type="button"
-                                                class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
                                                 @click="open = !open"
+                                                type="button"
+                                                class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-transparent p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-300 dark:hover:bg-dark-0 dark:focus:ring-offset-dark-1"
                                             >
                                                 <span class="sr-only">Card Actions</span>
-
-                                                <span class="iconify h-5 w-5 tabler--dots"></span>
+                                                <span aria-hidden="true" class="iconify h-6 w-6 tabler--dots"></span>
                                             </button>
 
                                             <div
@@ -538,17 +581,19 @@
                                                 @click.away="open = false"
                                                 class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
                                             >
-                                                <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
+                                                <div
+                                                    class="rounded-md bg-white py-1 ring-1 ring-black/20 dark:bg-dark-0"
+                                                >
                                                     <a
                                                         href="#"
-                                                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                        class="focus:bg-primary block px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-400 dark:hover:text-white dark:focus:bg-black dark:focus:text-white"
                                                     >
                                                         Action 1
                                                     </a>
 
                                                     <a
                                                         href="#"
-                                                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                        class="focus:bg-primary block px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-400 dark:hover:text-white dark:focus:bg-black dark:focus:text-white"
                                                     >
                                                         Action 2
                                                     </a>
@@ -584,20 +629,21 @@
                             </section>
 
                             <!-- Customers table -->
-                            <section class="overflow-hidden rounded-md border bg-white">
+                            <section
+                                class="overflow-hidden rounded-md border bg-white dark:border-gray-600 dark:bg-dark-1"
+                            >
                                 <div class="flex items-center justify-between gap-4 p-4">
                                     <h2 class="text-xl font-semibold">Latest Customers</h2>
 
-                                    <!-- Actions button -->
+                                    <!-- Actions menu -->
                                     <div class="relative" x-data="{ open: false }">
                                         <button
-                                            type="button"
-                                            class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
                                             @click="open = !open"
+                                            type="button"
+                                            class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-transparent p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-300 dark:hover:bg-dark-0 dark:focus:ring-offset-dark-1"
                                         >
                                             <span class="sr-only">Card Actions</span>
-
-                                            <span class="iconify h-5 w-5 tabler--dots"></span>
+                                            <span aria-hidden="true" class="iconify h-6 w-6 tabler--dots"></span>
                                         </button>
 
                                         <div
@@ -606,17 +652,17 @@
                                             @click.away="open = false"
                                             class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
                                         >
-                                            <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
+                                            <div class="rounded-md bg-white py-1 ring-1 ring-black/20 dark:bg-dark-0">
                                                 <a
                                                     href="#"
-                                                    class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                    class="focus:bg-primary block px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-400 dark:hover:text-white dark:focus:bg-black dark:focus:text-white"
                                                 >
                                                     Action 1
                                                 </a>
 
                                                 <a
                                                     href="#"
-                                                    class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                    class="focus:bg-primary block px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-400 dark:hover:text-white dark:focus:bg-black dark:focus:text-white"
                                                 >
                                                     Action 2
                                                 </a>
@@ -627,31 +673,35 @@
 
                                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                                        <div class="overflow-hidden rounded-e-md border-b border-gray-200">
-                                            <table class="min-w-full divide-y divide-gray-200 overflow-x-scroll">
-                                                <thead class="bg-gray-50">
-                                                    <tr>
+                                        <div
+                                            class="overflow-hidden rounded-e-md border-b border-gray-200 dark:border-gray-600"
+                                        >
+                                            <table
+                                                class="min-w-full divide-y divide-gray-200 overflow-x-scroll dark:divide-gray-600"
+                                            >
+                                                <thead class="bg-gray-50 dark:bg-dark-0">
+                                                    <tr class="text-gray-500 dark:text-gray-400">
                                                         <th
                                                             scope="col"
-                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider"
                                                         >
                                                             Name
                                                         </th>
                                                         <th
                                                             scope="col"
-                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider"
                                                         >
                                                             Title
                                                         </th>
                                                         <th
                                                             scope="col"
-                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider"
                                                         >
                                                             Country
                                                         </th>
                                                         <th
                                                             scope="col"
-                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider"
                                                         >
                                                             Date
                                                         </th>
@@ -661,8 +711,12 @@
                                                     </tr>
                                                 </thead>
 
-                                                <tbody class="divide-y divide-gray-200 bg-white">
-                                                    <tr class="transition-colors">
+                                                <tbody
+                                                    class="divide-y divide-gray-200 bg-white dark:divide-gray-600 dark:bg-dark-1"
+                                                >
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -674,7 +728,9 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="text-sm font-medium">Mamie Wiza</div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Clovis88&#64;hotmail.com
                                                                     </div>
                                                                 </div>
@@ -682,10 +738,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Egypt</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -696,7 +756,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -708,7 +770,9 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="text-sm font-medium">Wayne Hoppe I</div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Angus80&#64;hotmail.com
                                                                     </div>
                                                                 </div>
@@ -716,10 +780,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">China</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -730,7 +798,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -742,7 +812,9 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="text-sm font-medium">Bertha Parker</div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Kailee.Ortiz31&#64;hotmail.com
                                                                     </div>
                                                                 </div>
@@ -750,10 +822,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Brazil</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -764,7 +840,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -776,7 +854,9 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="text-sm font-medium">Clara Mills</div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Marco31&#64;yahoo.com
                                                                     </div>
                                                                 </div>
@@ -784,10 +864,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Argentina</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -798,7 +882,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -812,7 +898,9 @@
                                                                     <div class="text-sm font-medium">
                                                                         Carroll Stracke
                                                                     </div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Felicia_Mraz&#64;gmail.com
                                                                     </div>
                                                                 </div>
@@ -820,10 +908,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Indonesia</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -834,7 +926,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -848,7 +942,9 @@
                                                                     <div class="text-sm font-medium">
                                                                         Glenda Stroman
                                                                     </div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Shanna_Gutkowski&#64;yahoo.com
                                                                     </div>
                                                                 </div>
@@ -856,10 +952,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Lebanon</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -870,7 +970,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -882,7 +984,9 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="text-sm font-medium">Hannah Berge</div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Dakota.Johnston52&#64;hotmail.com
                                                                     </div>
                                                                 </div>
@@ -890,10 +994,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Portugal</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -904,7 +1012,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -918,7 +1028,9 @@
                                                                     <div class="text-sm font-medium">
                                                                         Roy Runolfsson
                                                                     </div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Eduardo60&#64;gmail.com
                                                                     </div>
                                                                 </div>
@@ -926,10 +1038,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Indonesia</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -940,7 +1056,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -954,7 +1072,9 @@
                                                                     <div class="text-sm font-medium">
                                                                         Roberto Collier
                                                                     </div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Deangelo.Reichert&#64;hotmail.com
                                                                     </div>
                                                                 </div>
@@ -962,10 +1082,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Kenya</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -976,7 +1100,9 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                    <tr class="transition-colors">
+                                                    <tr
+                                                        class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0"
+                                                    >
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="flex items-center gap-4">
                                                                 <div class="h-10 w-10 flex-shrink-0">
@@ -988,7 +1114,9 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="text-sm font-medium">Pat Fisher</div>
-                                                                    <div class="text-sm text-gray-500">
+                                                                    <div
+                                                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                                                    >
                                                                         Joshuah38&#64;yahoo.com
                                                                     </div>
                                                                 </div>
@@ -996,10 +1124,14 @@
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4">
                                                             <div class="text-sm">Regional Paradigm Technician</div>
-                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                                                Optimization
+                                                            </div>
                                                         </td>
                                                         <td class="whitespace-nowrap px-6 py-4 text-sm">Nigeria</td>
-                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400"
+                                                        >
                                                             Jan 13 2025
                                                         </td>
                                                         <td
@@ -1020,11 +1152,13 @@
                     </main>
 
                     <!-- Footer -->
-                    <footer class="sticky bottom-0 flex-shrink-0 border-t bg-white px-4 py-4 sm:px-6 md:max-h-14">
+                    <footer
+                        class="sticky bottom-0 flex-shrink-0 border-t bg-white px-4 py-4 dark:border-gray-600 dark:bg-dark-1 sm:px-6 md:max-h-14"
+                    >
                         <div
                             class="container mx-auto flex flex-col-reverse items-center justify-between gap-1 md:flex-row"
                         >
-                            <div x-data class="text-sm font-semibold text-gray-600">
+                            <div x-data class="text-sm font-semibold text-gray-600 dark:text-gray-400">
                                 &copy;<span x-text="new Date().getFullYear()"></span>
                                 K-WD, All rights reserved
                             </div>
@@ -1063,7 +1197,7 @@
                 :class="{ 'z-40': $store.search.isOpen }"
                 class="relative h-auto w-auto"
             >
-                <template x-teleport="body">
+                <template x-teleport="#app">
                     <div
                         x-show="$store.search.isOpen"
                         class="fixed inset-0 z-[99] flex h-screen w-screen items-start justify-center sm:py-10"
@@ -1078,7 +1212,7 @@
                             x-transition:leave-start="opacity-100"
                             x-transition:leave-end="opacity-0"
                             @click="$store.search.close()"
-                            class="absolute inset-0 h-full w-full bg-black/50 backdrop-blur-lg"
+                            class="absolute inset-0 h-full w-full bg-black/50 backdrop-blur-md"
                         ></div>
 
                         <div
@@ -1090,7 +1224,7 @@
                             x-transition:leave="ease-in duration-200"
                             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                            class="z-[99] w-full bg-white shadow-lg sm:max-w-lg sm:rounded-md"
+                            class="z-[99] w-full bg-white shadow-lg dark:bg-dark-2 sm:max-w-lg sm:rounded-md"
                         >
                             <div
                                 class="relative overflow-hidden border-b border-black text-gray-500 focus-within:text-gray-900 dark:focus-within:text-gray-400 sm:rounded-t-md"
@@ -1123,7 +1257,7 @@
                                 </button>
                             </div>
 
-                            <div class="bo max-h-[320px] overflow-y-auto overflow-x-hidden p-4">
+                            <div class="max-h-[320px] overflow-y-auto overflow-x-hidden p-4">
                                 <div class="space-y-1 pb-1">
                                     <div class="overflow-hidden px-1 text-gray-700">
                                         <div class="my-1 px-2 py-1 text-xs font-medium text-neutral-500">Category</div>
@@ -1155,23 +1289,24 @@
                 x-transition:leave="transition transform duration-300"
                 x-transition:leave-start="translate-x-0 opacity-100 ease-out"
                 x-transition:leave-end="translate-x-full opacity-0 ease-in"
-                class="fixed inset-y-0 right-0 z-40 flex w-80 flex-col bg-white shadow-lg"
+                class="fixed inset-y-0 right-0 z-40 flex w-80 flex-col bg-white shadow-lg dark:bg-dark-2"
             >
-                <div class="flex flex-shrink-0 items-center justify-between p-2">
+                <div class="flex flex-shrink-0 items-center justify-between p-2 text-gray-800 dark:text-gray-200">
                     <h6 class="p-2 text-lg">Settings</h6>
 
                     <button
                         @click="isSettingsPanelOpen = false"
                         type="button"
-                        class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-transparent p-2 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-300 dark:hover:bg-dark-0 dark:focus:ring-offset-dark-1"
                     >
-                        <span class="sr-only">Settings</span>
-
-                        <span class="iconify h-6 w-6 tabler--x"></span>
+                        <span class="sr-only">Close</span>
+                        <span aria-hidden="true" class="iconify h-6 w-6 tabler--x"></span>
                     </button>
                 </div>
 
-                <div class="max-h-full flex-1 overflow-hidden p-4 hover:overflow-y-scroll">
+                <div
+                    class="max-h-full flex-1 overflow-hidden p-4 text-gray-800 hover:overflow-y-auto dark:text-gray-200"
+                >
                     <span>Settings Content</span>
                     <!-- Settings Panel Content ... -->
                 </div>

@@ -33,48 +33,19 @@
 <section class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
     <h2 class="sr-only">Import data</h2>
     <!-- Import data card -->
-    <div class="rounded-lg border shadow-sm">
+    <div class="rounded-lg border shadow-sm bg-white dark:bg-dark-1 dark:border-gray-600">
         <!-- Card header -->
-        <div class="flex items-center justify-between border-b px-4 py-2">
+        <div class="flex items-center justify-between border-b px-4 py-2 dark:border-gray-600">
             <h5 class="font-semibold">Import Data</h5>
-            <!-- Actions button -->
-            <div class="relative" x-data="{ open: false }">
-                <button
-                    type="button"
-                    class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
-                    @click="open = !open"
-                >
-                    <span class="sr-only">Card Actions</span>
 
-                    <span class="iconify h-5 w-5 tabler--dots"></span>
-                </button>
-
-                <div
-                    x-cloak
-                    x-show="open"
-                    @click.away="open = false"
-                    class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
-                >
-                    <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
-                        <a
-                            href="#"
-                            class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
-                        >
-                            Action 1
-                        </a>
-
-                        <a
-                            href="#"
-                            class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
-                        >
-                            Action 2
-                        </a>
-                    </div>
-                </div>
-            </div>
+            {{> partials/card-header-dropdown }}
         </div>
-        <p class="px-4 py-6 text-gray-600">See and talk to your users and import them into your platform.</p>
-        <ul class="space-y-4 divide-y px-4 pb-4">
+
+        <p class="px-4 py-6 text-gray-600 dark:text-gray-400">
+            See and talk to your users and import them into your platform.
+        </p>
+
+        <ul class="space-y-4 divide-y px-4 pb-4 dark:divide-gray-600">
             <h5 class="font-semibold">Import Users from:</h5>
             <li class="flex items-start justify-between pt-4">
                 <div class="flex items-start space-x-3">
@@ -130,45 +101,12 @@
     </div>
 
     <!-- Bar chart card -->
-    <div class="rounded-lg border shadow-sm xl:col-span-3">
+    <div class="rounded-lg border shadow-sm xl:col-span-3 bg-white dark:bg-dark-1 dark:border-gray-600">
         <!-- Card header -->
-        <div class="flex items-center justify-between border-b px-4 py-2">
+        <div class="flex items-center justify-between border-b px-4 py-2 dark:border-gray-600">
             <h5 class="font-semibold">Monthly Expenses</h5>
-            <!-- Actions button -->
-            <div class="relative" x-data="{ open: false }">
-                <button
-                    type="button"
-                    class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
-                    @click="open = !open"
-                >
-                    <span class="sr-only">Card Actions</span>
 
-                    <span class="iconify h-5 w-5 tabler--dots"></span>
-                </button>
-
-                <div
-                    x-cloak
-                    x-show="open"
-                    @click.away="open = false"
-                    class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
-                >
-                    <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
-                        <a
-                            href="#"
-                            class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
-                        >
-                            Action 1
-                        </a>
-
-                        <a
-                            href="#"
-                            class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
-                        >
-                            Action 2
-                        </a>
-                    </div>
-                </div>
-            </div>
+            {{> partials/card-header-dropdown }}
         </div>
 
         <!-- Card content -->
@@ -196,74 +134,40 @@
 </section>
 
 <!-- Customers table -->
-<section class="overflow-hidden rounded-md border bg-white">
+<section class="overflow-hidden rounded-md border bg-white dark:bg-dark-1 dark:border-gray-600">
     <div class="flex items-center justify-between gap-4 p-4">
         <h2 class="text-xl font-semibold">Latest Customers</h2>
 
-        <!-- Actions button -->
-        <div class="relative" x-data="{ open: false }">
-            <button
-                type="button"
-                class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
-                @click="open = !open"
-            >
-                <span class="sr-only">Card Actions</span>
-
-                <span class="iconify h-5 w-5 tabler--dots"></span>
-            </button>
-
-            <div
-                x-cloak
-                x-show="open"
-                @click.away="open = false"
-                class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
-            >
-                <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
-                    <a
-                        href="#"
-                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
-                    >
-                        Action 1
-                    </a>
-
-                    <a
-                        href="#"
-                        class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
-                    >
-                        Action 2
-                    </a>
-                </div>
-            </div>
-        </div>
+        {{> partials/card-header-dropdown }}
     </div>
 
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-            <div class="overflow-hidden rounded-e-md border-b border-gray-200">
-                <table class="min-w-full divide-y divide-gray-200 overflow-x-scroll">
-                    <thead class="bg-gray-50">
-                        <tr>
+            <div class="overflow-hidden rounded-e-md border-b border-gray-200 dark:border-gray-600">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600 overflow-x-scroll">
+                    <thead class="bg-gray-50 dark:bg-dark-0">
+                        <tr class="text-gray-500 dark:text-gray-400">
                             <th
                                 scope="col"
-                                class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider"
                             >
                                 Name
                             </th>
                             <th
                                 scope="col"
-                                class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider"
                             >
                                 Title
                             </th>
                             <th
                                 scope="col"
-                                class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider"
                             >
                                 Country
                             </th>
                             <th
                                 scope="col"
-                                class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider"
                             >
                                 Date
                             </th>
@@ -273,9 +177,9 @@
                         </tr>
                     </thead>
 
-                    <tbody class="divide-y divide-gray-200 bg-white">
+                    <tbody class="divide-y divide-gray-200 bg-white dark:bg-dark-1 dark:divide-gray-600">
                         {{#each latestCustomers}}
-                        <tr class="transition-colors">
+                        <tr class="transition-colors hover:bg-gray-100 dark:hover:bg-dark-0">
                             <td class="whitespace-nowrap px-6 py-4">
                                 <div class="flex items-center gap-4">
                                     <div class="h-10 w-10 flex-shrink-0">
@@ -289,7 +193,7 @@
                                         <div class="text-sm font-medium">
                                             {{ name }}
                                         </div>
-                                        <div class="text-sm text-gray-500">
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">
                                             {{{ email }}}
                                         </div>
                                     </div>
@@ -297,12 +201,12 @@
                             </td>
                             <td class="whitespace-nowrap px-6 py-4">
                                 <div class="text-sm">Regional Paradigm Technician</div>
-                                <div class="text-sm text-gray-500">Optimization</div>
+                                <div class="text-sm text-gray-600 dark:text-gray-400">Optimization</div>
                             </td>
                             <td class="whitespace-nowrap px-6 py-4 text-sm">
                                 {{ country }}
                             </td>
-                            <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                            <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
                                 {{ date }}
                             </td>
                             <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">

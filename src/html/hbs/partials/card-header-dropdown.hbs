@@ -1,0 +1,22 @@
+<!-- Actions menu -->
+<div class="relative" x-data="{ open: false }">
+    {{#btn srText="Card Actions" icon="tabler--dots" classes="p-1.5" attrs='@click="open = !open"'}}{{/btn}}
+
+    <div x-cloak x-show="open" @click.away="open = false" class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg">
+        <div class="rounded-md bg-white py-1 ring-1 ring-black/20 dark:bg-dark-0">
+            <a
+                href="#"
+                class="focus:bg-primary block px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-400 dark:hover:text-white dark:focus:bg-black dark:focus:text-white"
+            >
+                Action 1
+            </a>
+
+            <a
+                href="#"
+                class="focus:bg-primary block px-4 py-2 text-sm text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-400 dark:hover:text-white dark:focus:bg-black dark:focus:text-white"
+            >
+                Action 2
+            </a>
+        </div>
+    </div>
+</div>

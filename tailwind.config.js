@@ -11,6 +11,14 @@ export default {
                 sans: ['Noto Sans', ...defaultTheme.fontFamily.sans],
             },
             
+            colors: {
+                dark: {
+                    0: '#151823',
+                    1: '#222738',
+                    2: '#2A2F42',
+                    3: '#2C3142',
+                },
+            },
         },
     },
     plugins: [

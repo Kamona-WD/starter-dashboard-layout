@@ -1,56 +1,44 @@
-<nav class="sticky top-0 z-10 flex-shrink-0 border-b bg-white px-4 py-2 sm:px-6">
+<nav class="sticky top-0 z-10 flex-shrink-0 border-b bg-white px-4 py-2 dark:border-gray-600 dark:bg-dark-1 sm:px-6">
     <div class="container mx-auto">
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <span class="text-xl font-semibold uppercase tracking-wider lg:hidden">K-WD</span>
 
                 <!-- Toggle sidebar button -->
-                <button
-                    type="button"
-                    class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
-                    @click="toggleSidbarMenu()"
-                >
-                    <span class="sr-only">Toggle sidebar</span>
-
-                    <span
-                        aria-hidden="true"
-                        class="iconify h-6 w-6 tabler--chevrons-right"
-                        :class="{'transform transition-transform -rotate-180': isSidebarOpen}"
-                    ></span>
-                </button>
+                {{#btn variant="secondary" classes="p-2" srText="Toggle sidebar" attrs='@click="toggleSidbarMenu()"'}}
+                <span
+                    aria-hidden="true"
+                    class="iconify h-6 w-6 tabler--chevrons-right"
+                    :class="{'transform transition-transform -rotate-180': isSidebarOpen}"
+                ></span>
+                {{/btn}}
 
                 <!-- Search button -->
-                <button
-                    @click="$store.search.open()"
-                    type="button"
-                    class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                    <span class="sr-only">Search</span>
+                {{#btn variant="secondary" icon="tabler--search" srText="Search" attrs='@click="$store.search.open()"'
 
-                    <span aria-hidden="true" class="iconify h-6 w-6 tabler--search"></span>
-                </button>
+                }}{{/btn}}
             </div>
 
             <div class="flex items-center gap-3">
-                <!-- Settings button -->
-                <button
-                    @click="isSettingsPanelOpen = true"
-                    type="button"
-                    class="inline-flex select-none items-center rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                    <span class="sr-only">Settings</span>
+                <!-- Dark mode button -->
+                {{#btn variant="secondary" classes="p-2" srText="Toggle dark mode" attrs='@click="$store.darkMode.toggle()"'}}
+                <!-- Moon icon -->
+                <span x-show="!$store.darkMode.value" class="iconify h-6 w-6 tabler--moon"></span>
 
-                    <span class="iconify h-6 w-6 tabler--settings-cog"></span>
-                </button>
+                <!-- Sun icon -->
+                <span x-show="$store.darkMode.value" class="iconify h-6 w-6 tabler--sun"></span>
+                {{/btn}}
+
+                <!-- Settings button -->
+                {{#btn variant="secondary" icon="tabler--settings" srText="Settings" attrs='@click="isSettingsPanelOpen = true"'
+
+                }}{{/btn}}
 
                 <!-- User dropdown menu -->
                 <div class="relative" x-data="{ isOpen: false }">
-                    <button
-                        @click="isOpen = !isOpen"
-                        class="inline-flex overflow-hidden rounded-md focus:outline-none focus:ring focus:ring-black focus:ring-offset-1 focus:ring-offset-white"
-                    >
-                        <img class="h-10 w-10 rounded-md object-cover" src="/images/avatar.jpeg" alt="User Name" />
-                    </button>
+                    {{#btn variant="secondary" classes="p-0" srText="User avatar" attrs='@click="isOpen = !isOpen"'}}
+                    <img class="h-10 w-10 rounded-md object-cover" src="/images/avatar.jpeg" alt="User Name" />
+                    {{/btn}}
 
                     <div
                         x-cloak
