@@ -7,7 +7,7 @@ window.Alpine = Alpine
 Alpine.data('setup', () => {
     return {
         loading: true,
-        isSidebarOpen: false,
+        isSidebarOpen: window.innerWidth > 1024,
         toggleSidbarMenu() {
             this.isSidebarOpen = !this.isSidebarOpen
         },

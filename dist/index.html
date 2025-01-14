@@ -17,8 +17,8 @@
             }
         </style>
 
-        <script type="module" crossorigin src="/js/index-page-ClxJ3RUF.js"></script>
-        <link rel="modulepreload" crossorigin href="/js/main-Dq7bZAZ0.js" />
+        <script type="module" crossorigin src="/js/index-page-132ypgux.js"></script>
+        <link rel="modulepreload" crossorigin href="/js/main-C5yvc9-5.js" />
         <link rel="stylesheet" crossorigin href="/css/main.css" />
     </head>
     <body class="font-sans antialiased">
@@ -409,7 +409,7 @@
 
                             <!-- Two columns grid -->
                             <section class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
-                                <h2 class="sr-only"></h2>
+                                <h2 class="sr-only">Import data</h2>
                                 <!-- Import data card -->
                                 <div class="rounded-lg border shadow-sm">
                                     <!-- Card header -->
@@ -582,6 +582,440 @@
                                     </div>
                                 </div>
                             </section>
+
+                            <!-- Customers table -->
+                            <section class="overflow-hidden rounded-md border bg-white">
+                                <div class="flex items-center justify-between gap-4 p-4">
+                                    <h2 class="text-xl font-semibold">Latest Customers</h2>
+
+                                    <!-- Actions button -->
+                                    <div class="relative" x-data="{ open: false }">
+                                        <button
+                                            type="button"
+                                            class="inline-flex select-none items-center rounded-md bg-white p-1.5 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+                                            @click="open = !open"
+                                        >
+                                            <span class="sr-only">Card Actions</span>
+
+                                            <span class="iconify h-5 w-5 tabler--dots"></span>
+                                        </button>
+
+                                        <div
+                                            x-cloak
+                                            x-show="open"
+                                            @click.away="open = false"
+                                            class="absolute right-0 z-50 mt-2 w-48 rounded-md shadow-lg"
+                                        >
+                                            <div class="rounded-md bg-white py-1 ring-1 ring-black/20">
+                                                <a
+                                                    href="#"
+                                                    class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                >
+                                                    Action 1
+                                                </a>
+
+                                                <a
+                                                    href="#"
+                                                    class="focus:bg-primary block px-4 py-2 text-sm leading-5 text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:text-white focus:outline-none"
+                                                >
+                                                    Action 2
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                        <div class="overflow-hidden rounded-e-md border-b border-gray-200">
+                                            <table class="min-w-full divide-y divide-gray-200 overflow-x-scroll">
+                                                <thead class="bg-gray-50">
+                                                    <tr>
+                                                        <th
+                                                            scope="col"
+                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                                        >
+                                                            Name
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                                        >
+                                                            Title
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                                        >
+                                                            Country
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            class="px-6 py-3 text-start text-xs font-medium uppercase tracking-wider text-gray-500"
+                                                        >
+                                                            Date
+                                                        </th>
+                                                        <th scope="col" class="relative px-6 py-3">
+                                                            <span class="sr-only">Edit</span>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody class="divide-y divide-gray-200 bg-white">
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">Mamie Wiza</div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Clovis88&#64;hotmail.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Egypt</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">Wayne Hoppe I</div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Angus80&#64;hotmail.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">China</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">Bertha Parker</div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Kailee.Ortiz31&#64;hotmail.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Brazil</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">Clara Mills</div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Marco31&#64;yahoo.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Argentina</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">
+                                                                        Carroll Stracke
+                                                                    </div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Felicia_Mraz&#64;gmail.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Indonesia</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">
+                                                                        Glenda Stroman
+                                                                    </div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Shanna_Gutkowski&#64;yahoo.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Lebanon</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">Hannah Berge</div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Dakota.Johnston52&#64;hotmail.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Portugal</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">
+                                                                        Roy Runolfsson
+                                                                    </div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Eduardo60&#64;gmail.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Indonesia</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">
+                                                                        Roberto Collier
+                                                                    </div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Deangelo.Reichert&#64;hotmail.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Kenya</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="transition-colors">
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="flex items-center gap-4">
+                                                                <div class="h-10 w-10 flex-shrink-0">
+                                                                    <img
+                                                                        class="h-10 w-10 rounded-md"
+                                                                        src="/images/avatar.jpeg"
+                                                                        alt="User's avatar"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <div class="text-sm font-medium">Pat Fisher</div>
+                                                                    <div class="text-sm text-gray-500">
+                                                                        Joshuah38&#64;yahoo.com
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4">
+                                                            <div class="text-sm">Regional Paradigm Technician</div>
+                                                            <div class="text-sm text-gray-500">Optimization</div>
+                                                        </td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm">Nigeria</td>
+                                                        <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                                            Jan 13 2025
+                                                        </td>
+                                                        <td
+                                                            class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium"
+                                                        >
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </main>
 
@@ -624,6 +1058,7 @@
             </div>
 
             <div
+                x-cloak
                 @keydown.escape.window="$store.search.close()"
                 :class="{ 'z-40': $store.search.isOpen }"
                 class="relative h-auto w-auto"

@@ -15,4 +15,4 @@ focus-trap/dist/focus-trap.esm.js:
   * focus-trap 6.9.4
   * @license MIT, https://github.com/focus-trap/focus-trap/blob/master/LICENSE
   *)
-*/window.Alpine=be;be.data("setup",()=>({loading:!0,isSidebarOpen:!1,toggleSidbarMenu(){this.isSidebarOpen=!this.isSidebarOpen},isSettingsPanelOpen:!1}));be.store("search",{isOpen:!1,open(){this.isOpen=!0},close(){this.isOpen=!1}});be.plugin(Ma);be.plugin(to);
+*/window.Alpine=be;be.data("setup",()=>({loading:!0,isSidebarOpen:window.innerWidth>1024,toggleSidbarMenu(){this.isSidebarOpen=!this.isSidebarOpen},isSettingsPanelOpen:!1}));be.store("search",{isOpen:!1,open(){this.isOpen=!0},close(){this.isOpen=!1}});be.plugin(Ma);be.plugin(to);

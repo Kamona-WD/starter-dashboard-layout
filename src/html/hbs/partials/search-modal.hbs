@@ -1,4 +1,5 @@
 <div
+    x-cloak
     @keydown.escape.window="$store.search.close()"
     :class="{ 'z-40': $store.search.isOpen }"
     class="relative h-auto w-auto"
