@@ -66,7 +66,6 @@ export default {
             country: 'Egypt',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/912.jpg',
         },
         {
             name: 'Wayne Hoppe I',
@@ -76,7 +75,6 @@ export default {
             country: 'China',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/805.jpg',
         },
         {
             name: 'Bertha Parker',
@@ -86,7 +84,6 @@ export default {
             country: 'Brazil',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/387.jpg',
         },
         {
             name: 'Clara Mills',
@@ -96,7 +93,6 @@ export default {
             country: 'Argentina',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/879.jpg',
         },
         {
             name: 'Carroll Stracke',
@@ -106,7 +102,6 @@ export default {
             country: 'Indonesia',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/330.jpg',
         },
         {
             name: 'Glenda Stroman',
@@ -116,7 +111,6 @@ export default {
             country: 'Lebanon',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/201.jpg',
         },
         {
             name: 'Hannah Berge',
@@ -126,7 +120,6 @@ export default {
             country: 'Portugal',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/607.jpg',
         },
         {
             name: 'Roy Runolfsson',
@@ -136,7 +129,6 @@ export default {
             country: 'Indonesia',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1063.jpg',
         },
         {
             name: 'Roberto Collier',
@@ -146,7 +138,6 @@ export default {
             country: 'Kenya',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/753.jpg',
         },
         {
             name: 'Pat Fisher',
@@ -156,7 +147,6 @@ export default {
             country: 'Nigeria',
             title: '',
             titleDesc: '',
-            avatar: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/478.jpg',
         },
     ],
 }
