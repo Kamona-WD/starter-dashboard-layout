@@ -10,99 +10,130 @@ const getRandomChartData = (l = 10, m = 100) => {
     return Array.from({ length: l }, () => getRandomChartDataItem(l, m))
 }
 
-const quickStatisticsChartOptions = (name) => {
-    return {
-        series: [
-            {
-                name: name,
-                data: getRandomChartData(12),
-            },
-        ],
-        chart: {
-            height: '100%',
-            width: '100%',
-            type: 'line',
-            toolbar: {
-                show: false,
-            },
-            sparkline: {
-                enabled: true,
-            },
-        },
-        stroke: {
-            width: 2,
-            curve: 'smooth',
-        },
-        grid: {
-            show: false,
-            padding: {
-                left: 0,
-                right: 0,
-            },
-            xaxis: {
-                lines: {
-                    show: false,
-                },
-            },
-            yaxis: {
-                lines: {
-                    show: false,
-                },
-            },
-        },
-        xaxis: {
-            tickAmount: 10,
-            labels: {
-                show: false,
-            },
-            axisBorder: {
-                show: false,
-            },
-            axisTicks: {
-                show: false,
-            },
-        },
-        title: {
-            show: false,
-        },
-        fill: {
-            type: 'gradient',
-            gradient: {
-                shade: 'dark',
-                gradientToColors: ['#FDD835'],
-                shadeIntensity: 1,
-                type: 'horizontal',
-                opacityFrom: 1,
-                opacityTo: 1,
-                stops: [0, 100, 100, 100],
-            },
-        },
-        yaxis: {
-            labels: {
-                show: false,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        tooltip: {
-            x: { show: false },
-            theme: 'dark',
-        },
+const getScheme = () => {
+    if (window.localStorage.getItem('dark')) {
+        return JSON.parse(window.localStorage.getItem('dark'))
     }
+
+    return !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+}
+
+const onInit = (chart) => {
+    document.addEventListener('scheme:changed', () => {
+        chart.updateOptions({
+            theme: {
+                mode: getScheme() ? 'dark' : 'light',
+            },
+        })
+    })
 }
 
 document.addEventListener('alpine:init', () => {
+    const baseChartOptions = {
+        theme: {
+            mode: getScheme() ? 'dark' : 'light',
+        }
+    }
+
+    const quickStatisticsChartOptions = (name) => {
+        return {
+            ...baseChartOptions,
+            series: [
+                {
+                    name: name,
+                    data: getRandomChartData(12),
+                },
+            ],
+            chart: {
+                height: '100%',
+                width: '100%',
+                type: 'line',
+                toolbar: {
+                    show: false,
+                },
+                sparkline: {
+                    enabled: true,
+                },
+                background: 'transparent',
+            },
+            stroke: {
+                width: 2,
+                curve: 'smooth',
+            },
+            grid: {
+                show: false,
+                padding: {
+                    left: 0,
+                    right: 0,
+                },
+                xaxis: {
+                    lines: {
+                        show: false,
+                    },
+                },
+                yaxis: {
+                    lines: {
+                        show: false,
+                    },
+                },
+            },
+            xaxis: {
+                tickAmount: 10,
+                labels: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                },
+            },
+            title: {
+                show: false,
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'dark',
+                    gradientToColors: ['#FDD835'],
+                    shadeIntensity: 1,
+                    type: 'horizontal',
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                    stops: [0, 100, 100, 100],
+                },
+            },
+            yaxis: {
+                labels: {
+                    show: false,
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            tooltip: {
+                x: { show: false },
+                theme: 'dark',
+            },
+        }
+    }
+
     window.Alpine.data('quickStatisticsChart', (el, name) => {
+        let chart = new ApexCharts(el, quickStatisticsChartOptions(name))
+
+        chart.render()
+
         return {
             init() {
-                new ApexCharts(el, quickStatisticsChartOptions(name)).render()
+                onInit(chart)
             },
         }
     })
 
     window.Alpine.data('barChart', (el) => {
-        new ApexCharts(el, {
+        let chart = new ApexCharts(el, {
+            ...baseChartOptions,
             chart: {
                 type: 'bar',
                 height: '100%',
@@ -111,6 +142,7 @@ document.addEventListener('alpine:init', () => {
                 toolbar: {
                     show: false,
                 },
+                background: 'transparent',
             },
             plotOptions: {
                 bar: {
@@ -133,9 +165,6 @@ document.addEventListener('alpine:init', () => {
                     data: getRandomChartData(12),
                 },
             ],
-            tooltip: {
-                theme: 'dark',
-            },
             grid: {
                 padding: {
                     top: -20,
@@ -165,6 +194,14 @@ document.addEventListener('alpine:init', () => {
             legend: {
                 show: false,
             },
-        }).render()
+        })
+        
+        chart.render()
+
+        return {
+            init() {
+                onInit(chart)
+            }
+        }
     })
 })
