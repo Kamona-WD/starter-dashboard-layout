@@ -1,6 +1,6 @@
-# Starter Responsive Dashboard Layout
+# Starter Dashboard Layout
 
-Starter responsive dashboard layout built with tailwindcss alpinejs
+Starter responsive dashboard layout built with tailwindcss and alpinejs
 
 [![GitHub license](https://img.shields.io/github/license/Kamona-WD/starter-dashboard-layout)](https://github.com/Kamona-WD/starter-dashboard-layout/blob/main/License.md)
 [![GitHub stars](https://img.shields.io/github/stars/Kamona-WD/starter-dashboard-layout)](https://github.com/Kamona-WD/starter-dashboard-layout/stargazers)
@@ -23,55 +23,43 @@ To get started:
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/Kamona-WD/starter-dashboard-layout.git
+```bash
+git clone https://github.com/Kamona-WD/starter-dashboard-layout.git
 
-   cd starter-dashboard-layout
-   ```
+cd starter-dashboard-layout
+```
 
 2. Install the dependencies:
 
-   ```bash
-   # Using npm
-   npm install
+```bash
+yarn
 
-   # Using Yarn
-   yarn
-   ```
+# Using npm
+npm install
+```
 
 3. Start the development server:
 
-   ```bash
-   # Using npm
-   npm run dev
+```bash
+yarn dev
 
-   # Using Yarn
-   yarn dev
-   ```
-
-   Now you should be able to see the project running at localhost:8080.
-
-4. Open `src/html/index.edge` in your editor and start experimenting!
+# Using npm
+npm run dev
+```
 
 ## Building for production
 
 To build an optimized version of your CSS & html, simply run:
 
 ```bash
-# Using npm
-npm run build
+yarn build
 
 # Using Yarn
-yarn build
+npm run build
 ```
-
-After that's done, check out `./dist` to see the optimized output.
 
 ---
 
 ## Support
 
-<a href="https://www.buymeacoffee.com/ahmedkamel" target="_blank" style="display: inline-block !important;"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-
-Be careful and donate just if it is within your possibilities, because there is no refund system. And remember that you don't need to donate, it is just a free choice for you. Thank you!
-
+[![PayPal Me](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/Akamel721/)
