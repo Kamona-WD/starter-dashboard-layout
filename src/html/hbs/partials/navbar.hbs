@@ -17,6 +17,7 @@
                 {{#btn variant="secondary" icon="tabler--search" srText="Search" attrs='@click="$store.search.open()"'
 
 
+
                 }}{{/btn}}
             </div>
 
@@ -34,6 +35,7 @@
                 {{#btn variant="secondary" icon="tabler--settings" srText="Settings" attrs='@click="isSettingsPanelOpen = true"'
 
 
+
                 }}{{/btn}}
 
                 <!-- User dropdown menu -->
@@ -48,21 +50,25 @@
                         x-show.transition.opacity="isOpen"
                         class="absolute right-0 z-[99] mt-2 w-48 origin-top-right rounded-md shadow-lg"
                     >
-                        <div class="overflow-hidden rounded-md bg-white ring-1 ring-black/20 dark:bg-gray-700 dark:ring-black/40">
+                        <div
+                            class="overflow-hidden rounded-md bg-white ring-1 ring-black/20 dark:bg-gray-700 dark:ring-black/40"
+                        >
                             <div class="flex flex-col gap-1 border-b px-4 py-2 font-medium dark:border-b-gray-600">
                                 <span class="text-gray-800 dark:text-gray-300">Ahmed Kamel</span>
-                                <span class="truncate text-xs text-gray-400 dark:text-gray-500"> ahmed.kamel&#64;example.com </span>
+                                <span class="truncate text-xs text-gray-400 dark:text-gray-500">
+                                    ahmed.kamel&#64;example.com
+                                </span>
                             </div>
                             <a
                                 href="#"
-                                class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out dark:text-gray-200 hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none"
+                                class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-200"
                             >
                                 Profile
                             </a>
 
                             <a
                                 href="#"
-                                class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out dark:text-gray-200 hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none"
+                                class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-200"
                             >
                                 Logout
                             </a>

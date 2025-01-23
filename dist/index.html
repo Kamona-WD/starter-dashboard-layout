@@ -38,7 +38,7 @@
             <!-- Loading screen -->
             <div
                 x-ref="loading"
-                class="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 text-white backdrop-blur-lg"
+                class="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 text-white backdrop-blur-lg"
             >
                 Loading.....
             </div>
@@ -155,10 +155,10 @@
                     </nav>
 
                     <!-- Sidebar footer -->
-                    <div class="max-h-14c flex-shrink-0 border-t p-2 dark:border-gray-600">
+                    <div class="max-h-14 flex-shrink-0 border-t p-2 dark:border-gray-600">
                         <button
                             type="button"
-                            class="inline-flex w-full select-none items-center justify-center gap-2 rounded-md bg-black px-4 py-2 font-medium text-gray-200 transition-colors hover:bg-gray-900 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-offset-dark-1"
+                            class="inline-flex w-full select-none items-center justify-center gap-2 rounded-md bg-black px-4 py-2 text-sm font-medium text-gray-200 transition-colors hover:bg-gray-900 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-offset-dark-1"
                         >
                             <span aria-hidden="true" class="iconify h-6 w-6 flex-shrink-0 tabler--sparkles"></span>
 
@@ -259,23 +259,27 @@
                                             x-show.transition.opacity="isOpen"
                                             class="absolute right-0 z-[99] mt-2 w-48 origin-top-right rounded-md shadow-lg"
                                         >
-                                            <div class="overflow-hidden rounded-md bg-white ring-1 ring-black/20">
-                                                <div class="flex flex-col gap-1 border-b px-4 py-2 font-medium">
-                                                    <span class="text-gray-800">Ahmed Kamel</span>
-                                                    <span class="truncate text-xs text-gray-400">
+                                            <div
+                                                class="overflow-hidden rounded-md bg-white ring-1 ring-black/20 dark:bg-gray-700 dark:ring-black/40"
+                                            >
+                                                <div
+                                                    class="flex flex-col gap-1 border-b px-4 py-2 font-medium dark:border-b-gray-600"
+                                                >
+                                                    <span class="text-gray-800 dark:text-gray-300">Ahmed Kamel</span>
+                                                    <span class="truncate text-xs text-gray-400 dark:text-gray-500">
                                                         ahmed.kamel&#64;example.com
                                                     </span>
                                                 </div>
                                                 <a
                                                     href="#"
-                                                    class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none"
+                                                    class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-200"
                                                 >
                                                     Profile
                                                 </a>
 
                                                 <a
                                                     href="#"
-                                                    class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none"
+                                                    class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-200"
                                                 >
                                                     Logout
                                                 </a>
@@ -1267,13 +1271,17 @@
 
                             <div class="max-h-[320px] overflow-y-auto overflow-x-hidden p-4">
                                 <div class="space-y-1 pb-1">
-                                    <div class="overflow-hidden px-1 text-gray-700">
-                                        <div class="my-1 px-2 py-1 text-xs font-medium text-neutral-500">Category</div>
+                                    <div class="overflow-hidden px-1">
+                                        <div
+                                            class="my-1 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-400"
+                                        >
+                                            Category
+                                        </div>
                                     </div>
 
                                     <div class="px-1">
                                         <div
-                                            class="relative flex cursor-default select-none items-center gap-1 rounded-md px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                                            class="relative flex cursor-default select-none items-center gap-1 rounded-md px-2 py-1.5 text-sm text-gray-700 outline-none dark:text-gray-300"
                                         >
                                             <span aria-hidden="true" class="iconify tabler--circle"></span>
                                             <span>Item title</span>
