@@ -4,7 +4,7 @@ export default {
     navigationLinks: [
         {
             title: 'Dashboard',
-            url: '/index.html',
+            url: '/',
             iconName: 'tabler--dashboard',
         },
         {
@@ -14,7 +14,7 @@ export default {
             links: [
                 {
                     title: 'Blank',
-                    url: '/blank.html',
+                    url: 'blank.html',
                 },
             ],
         },

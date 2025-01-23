@@ -15,6 +15,7 @@
     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
     class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all dark:border-gray-700 dark:bg-dark-1 lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
     :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
+    x-resize.document="watchScreen"
 >
     <!-- sidebar header -->
     <div class="flex flex-shrink-0 items-center justify-between p-2" :class="{'lg:justify-center': !isSidebarOpen}">
@@ -32,7 +33,7 @@
             {{#unless links}}
             <li>
                 <a
-                    href="{{ url }}"
+                    href="{{ baseUrl url }}"
                     class="flex items-center gap-2 rounded-md p-2 transition-colors {{#if (eq ../activeLink title)}} text-white bg-black hover:bg-gray-800 dark:hover:bg-gray-900 {{else}} hover:text-white hover:bg-black {{/if}}"
                     :class="{'justify-center': !isSidebarOpen}"
                 >
@@ -79,7 +80,7 @@
                             class="relative m-0 ps-6 leading-normal before:absolute before:left-0 before:top-4 before:-mt-0.5 before:block before:h-0 before:w-4 before:border-t-2 before:border-t-gray-200 last:before:bottom-0 last:before:top-4 last:before:h-auto last:before:bg-white dark:before:border-t-gray-600 dark:last:before:bg-dark-1"
                         >
                             <a
-                                href="{{ url }}"
+                                href="{{ baseUrl url }}"
                                 class="inline-block transition-colors {{#if (eq ../../activeLink title)}} text-gray-900 hover:text-gray-700 dark:text-gray-200 {{else}} text-gray-500 hover:text-gray-900 dark:text-gray-400 {{/if}}"
                             >
                                 {{ title }}

@@ -1,6 +1,7 @@
 import Alpine from 'alpinejs'
 import AlpineCollapse from '@alpinejs/collapse'
 import AlpineFocus from '@alpinejs/focus'
+import AlpineResize from '@alpinejs/resize'
 
 window.Alpine = Alpine
 
@@ -12,6 +13,13 @@ Alpine.data('setup', () => {
             this.isSidebarOpen = !this.isSidebarOpen
         },
         isSettingsPanelOpen: false,
+        watchScreen() {
+            if (window.innerWidth <= 1024) {
+                this.isSidebarOpen = false
+            } else {
+                this.isSidebarOpen = true
+            }
+        }
     }
 })
 
@@ -48,5 +56,6 @@ Alpine.store('search', {
 
 Alpine.plugin(AlpineCollapse)
 Alpine.plugin(AlpineFocus)
+Alpine.plugin(AlpineResize)
 
 // Alpine.start()
