@@ -1,12 +1,14 @@
 {
   "name": "starter-dashboard-layout",
-  "description": "Starter responsive dashboard layout built with tailwindcss alpinejs",
+  "description": "Starter responsive dashboard layout built with tailwindcss and alpinejs",
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "private": "true",
   "keywords": [
     "dashboard",
+    "admin panel",
+    "alpinejs",
     "tailwindcss",
     "layout"
   ],
@@ -15,6 +17,11 @@
     "email": "ak3849909@gmail.com",
     "url": "https://github.com/Kamona-WD"
   },
+  "homepage": "https://kamona-wd.github.io/starter-dashboard-layout/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamona-wd/starter-dashboard-layout"
+},
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",
