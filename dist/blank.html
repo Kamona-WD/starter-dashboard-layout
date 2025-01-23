@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--
  * starter-dashboard-layout: Starter responsive dashboard layout built with tailwindcss and alpinejs
  * version: v1.0.0
@@ -16,7 +16,7 @@
         <meta name="keywords" content="Admin, Dashboard, Template, HTML, CSS, JavaScript, Tailwindcss, Alpinejs" />
         <meta name="author" content="Ahmed Kamel" />
 
-        <title>Starter Dashboard Layout | Blank</title>
+        <title>Starter Dashboard Layout  | Blank </title>
 
         <style>
             [x-cloak] {
@@ -24,9 +24,10 @@
             }
         </style>
 
-        <script type="module" crossorigin src="/starter-dashboard-layout/js/blank-page-DDpGeliE.js"></script>
-        <link rel="modulepreload" crossorigin href="/starter-dashboard-layout/js/main-De1nIMvA.js" />
-        <link rel="stylesheet" crossorigin href="/starter-dashboard-layout/css/main.css" />
+
+      <script type="module" crossorigin src="/starter-dashboard-layout/js/blank-page-DDpGeliE.js"></script>
+      <link rel="modulepreload" crossorigin href="/starter-dashboard-layout/js/main-De1nIMvA.js">
+      <link rel="stylesheet" crossorigin href="/starter-dashboard-layout/css/main.css">
     </head>
     <body class="font-sans antialiased">
         <div
@@ -50,7 +51,7 @@
                     @click="isSidebarOpen = false"
                     class="fixed inset-0 z-40 bg-black/60 backdrop-blur-lg lg:hidden"
                 ></div>
-
+                
                 <!-- Sidebar -->
                 <aside
                     x-transition:enter="transition transform duration-300"
@@ -61,41 +62,37 @@
                     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
                     class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all dark:border-gray-700 dark:bg-dark-1 lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
                     :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
-                    x-resize.document="watchScreen"
+                    @resize.window="watchScreen"
                 >
                     <!-- sidebar header -->
-                    <div
-                        class="flex flex-shrink-0 items-center justify-between p-2"
-                        :class="{'lg:justify-center': !isSidebarOpen}"
-                    >
+                    <div class="flex flex-shrink-0 items-center justify-between p-2" :class="{'lg:justify-center': !isSidebarOpen}">
                         <span class="whitespace-nowrap p-2 text-xl font-semibold uppercase leading-8 tracking-wider">
                             K<span :class="{'lg:hidden': !isSidebarOpen}">-WD</span>
                         </span>
-
-                        <button
-                            @click="toggleSidbarMenu()"
-                            type="button"
-                            class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-transparent p-2 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-300 dark:hover:bg-dark-0 dark:focus:ring-offset-dark-1 lg:hidden"
-                        >
-                            <span class="sr-only">Close sidebar</span>
-                            <span aria-hidden="true" class="iconify h-6 w-6 tabler--x"></span>
-                        </button>
+                
+                        
+                            <button  @click="toggleSidbarMenu()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-700 focus:ring-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-0 p-2 lg:hidden">
+                                <span class="sr-only">Close sidebar</span>
+                                <span aria-hidden="true" class="iconify tabler--x w-6 h-6"></span>
+                                
+                                
+                                
+                                
+                            </button>
+                        
                     </div>
-
+                
                     <!-- Sidebar links -->
                     <nav aria-label="main" class="flex-1 overflow-hidden hover:overflow-y-auto">
                         <ul class="space-y-1 overflow-hidden p-2">
                             <li>
                                 <a
                                     href="/starter-dashboard-layout/"
-                                    class="flex items-center gap-2 rounded-md p-2 transition-colors hover:bg-black hover:text-white"
+                                    class="flex items-center gap-2 rounded-md p-2 transition-colors  hover:text-white hover:bg-black "
                                     :class="{'justify-center': !isSidebarOpen}"
                                 >
-                                    <span
-                                        aria-hidden="true"
-                                        class="iconify h-6 w-6 flex-shrink-0 text-gray-400 tabler--dashboard"
-                                    ></span>
-
+                                    <span aria-hidden="true" class="iconify tabler--dashboard flex-shrink-0 h-6 w-6 text-gray-400"></span>
+                
                                     <span :class="{ 'lg:hidden': !isSidebarOpen }" class="whitespace-nowrap">
                                         Dashboard
                                     </span>
@@ -104,36 +101,29 @@
                             <li class="relative" x-data="{ open:  true  }">
                                 <button
                                     type="button"
-                                    class="flex w-full items-center gap-2 rounded-md bg-black p-2 text-white transition-colors hover:bg-gray-900"
+                                    class="flex items-center gap-2 rounded-md p-2 transition-colors w-full  text-white bg-black hover:bg-gray-900 "
                                     @click="open = !open"
                                     :class="{'justify-center': !isSidebarOpen}"
                                 >
-                                    <span
-                                        class="iconify h-6 w-6 flex-shrink-0 text-gray-400 tabler--file"
-                                        aria-hidden="true"
-                                    ></span>
-
+                                    <span class="iconify tabler--file flex-shrink-0 w-6 h-6 text-gray-400" aria-hidden="true"></span>
+                
                                     <span :class="{ 'lg:hidden': !isSidebarOpen }" class="whitespace-nowrap">
                                         Pages
                                     </span>
-
-                                    <span
-                                        x-show="isSidebarOpen"
-                                        aria-hidden="true"
-                                        class="relative ms-auto block h-6 w-6"
-                                    >
+                
+                                    <span x-show="isSidebarOpen" aria-hidden="true" class="relative ms-auto block h-6 w-6">
                                         <span
                                             :class="open ? '-rotate-45' : 'rotate-45'"
                                             class="absolute right-[9px] top-1/2 mt-[-5px] h-2 w-[2px] bg-gray-400 transition-all duration-200"
                                         ></span>
-
+                
                                         <span
                                             :class="open ? 'rotate-45' : '-rotate-45'"
                                             class="absolute left-[9px] top-1/2 mt-[-5px] h-2 w-[2px] bg-gray-400 transition-all duration-200"
                                         ></span>
                                     </span>
                                 </button>
-
+                
                                 <div x-show="open && isSidebarOpen" x-collapse>
                                     <ul
                                         class="relative ml-5 px-0 pb-0 pt-2 before:absolute before:inset-y-0 before:left-0 before:block before:w-0 before:border-l-2 before:border-l-gray-200 dark:before:border-l-gray-600"
@@ -143,7 +133,7 @@
                                         >
                                             <a
                                                 href="/starter-dashboard-layout/blank.html"
-                                                class="inline-block text-gray-900 transition-colors hover:text-gray-700 dark:text-gray-200"
+                                                class="inline-block transition-colors  text-gray-900 hover:text-gray-700 dark:text-gray-200 "
                                             >
                                                 Blank
                                             </a>
@@ -153,106 +143,102 @@
                             </li>
                         </ul>
                     </nav>
-
+                
                     <!-- Sidebar footer -->
                     <div class="max-h-14 flex-shrink-0 border-t p-2 dark:border-gray-600">
-                        <button
-                            type="button"
-                            class="inline-flex w-full select-none items-center justify-center gap-2 rounded-md bg-black px-4 py-2 text-sm font-medium text-gray-200 transition-colors hover:bg-gray-900 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-offset-dark-1"
-                        >
-                            <span aria-hidden="true" class="iconify h-6 w-6 flex-shrink-0 tabler--sparkles"></span>
-
-                            <span :class="{'lg:hidden': !isSidebarOpen}" class="whitespace-nowrap">
-                                Quick Actions
-                            </span>
-                        </button>
-                    </div>
+                
+                            <button   type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-black text-gray-200 hover:bg-gray-900 focus:ring-black px-4 py-2 w-full text-sm">
+                                
+                                
+                                
+                                
+                                        <span aria-hidden="true" class="iconify h-6 w-6 flex-shrink-0 tabler--sparkles"></span>
+                
+                        <span :class="{'lg:hidden': !isSidebarOpen}" class="whitespace-nowrap"> Quick Actions </span>
+                
+                                
+                            </button>
+                            </div>
                 </aside>
 
                 <div class="flex min-h-screen flex-1 flex-col">
-                    <nav
-                        class="sticky top-0 z-10 flex-shrink-0 border-b bg-white px-4 py-2 dark:border-gray-600 dark:bg-dark-1 sm:px-6"
-                    >
+                    <nav class="sticky top-0 z-10 flex-shrink-0 border-b bg-white px-4 py-2 dark:border-gray-600 dark:bg-dark-1 sm:px-6">
                         <div class="container mx-auto">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-3">
                                     <span class="text-xl font-semibold uppercase tracking-wider lg:hidden">K-WD</span>
-
+                    
                                     <!-- Toggle sidebar button -->
-
-                                    <button
-                                        @click="toggleSidbarMenu()"
-                                        type="button"
-                                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
-                                    >
-                                        <span class="sr-only">Toggle sidebar</span>
-
-                                        <span
-                                            aria-hidden="true"
-                                            class="iconify h-6 w-6 tabler--chevrons-right"
-                                            :class="{'transform transition-transform -rotate-180': isSidebarOpen}"
-                                        ></span>
-                                    </button>
-
+                    
+                                <button  @click="toggleSidbarMenu()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
+                                    <span class="sr-only">Toggle sidebar</span>
+                                    
+                                    
+                                    
+                                                    <span
+                                        aria-hidden="true"
+                                        class="iconify h-6 w-6 tabler--chevrons-right"
+                                        :class="{'transform transition-transform -rotate-180': isSidebarOpen}"
+                                    ></span>
+                    
+                                    
+                                </button>
+                            
                                     <!-- Search button -->
-
-                                    <button
-                                        @click="$store.search.open()"
-                                        type="button"
-                                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
-                                    >
-                                        <span class="sr-only">Search</span>
-                                        <span aria-hidden="true" class="iconify h-6 w-6 tabler--search"></span>
-                                    </button>
+                                    
+                                <button  @click="$store.search.open()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
+                                    <span class="sr-only">Search</span>
+                                    <span aria-hidden="true" class="iconify tabler--search w-6 h-6"></span>
+                                    
+                                    
+                                    
+                                    
+                                </button>
+                            
                                 </div>
-
+                    
                                 <div class="flex items-center gap-3">
                                     <!-- Dark mode button -->
-
-                                    <button
-                                        @click="$store.darkMode.toggle()"
-                                        type="button"
-                                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
-                                    >
-                                        <span class="sr-only">Toggle dark mode</span>
-
-                                        <!-- Moon icon -->
-                                        <span
-                                            x-show="!$store.darkMode.value"
-                                            class="iconify h-6 w-6 tabler--moon"
-                                        ></span>
-
-                                        <!-- Sun icon -->
-                                        <span x-show="$store.darkMode.value" class="iconify h-6 w-6 tabler--sun"></span>
-                                    </button>
-
+                    
+                                <button  @click="$store.darkMode.toggle()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
+                                    <span class="sr-only">Toggle dark mode</span>
+                                    
+                                    
+                                    
+                                                    <!-- Moon icon -->
+                                    <span x-show="!$store.darkMode.value" class="iconify h-6 w-6 tabler--moon"></span>
+                    
+                                    <!-- Sun icon -->
+                                    <span x-show="$store.darkMode.value" class="iconify h-6 w-6 tabler--sun"></span>
+                    
+                                    
+                                </button>
+                            
                                     <!-- Settings button -->
-
-                                    <button
-                                        @click="isSettingsPanelOpen = true"
-                                        type="button"
-                                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-2 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
-                                    >
-                                        <span class="sr-only">Settings</span>
-                                        <span aria-hidden="true" class="iconify h-6 w-6 tabler--settings"></span>
-                                    </button>
-
+                                    
+                                <button  @click="isSettingsPanelOpen = true" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
+                                    <span class="sr-only">Settings</span>
+                                    <span aria-hidden="true" class="iconify tabler--settings w-6 h-6"></span>
+                                    
+                                    
+                                    
+                                    
+                                </button>
+                            
+                    
                                     <!-- User dropdown menu -->
                                     <div class="relative" x-data="{ isOpen: false }">
-                                        <button
-                                            @click="isOpen = !isOpen"
-                                            type="button"
-                                            class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-gray-100 p-0 font-medium text-gray-500 transition-colors hover:bg-gray-200 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-offset-dark-1"
-                                        >
-                                            <span class="sr-only">User avatar</span>
-
-                                            <img
-                                                class="h-10 w-10 rounded-md object-cover"
-                                                src="/starter-dashboard-layout/images/avatar.jpeg"
-                                                alt="User Name"
-                                            />
-                                        </button>
-
+                    
+                                <button  @click="isOpen = !isOpen" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-0">
+                                    <span class="sr-only">User avatar</span>
+                                    
+                                    
+                                    
+                                                        <img class="h-10 w-10 rounded-md object-cover" src="/starter-dashboard-layout/images/avatar.jpeg" alt="User Name" />
+                    
+                                    
+                                </button>
+                            
                                         <div
                                             x-cloak
                                             @click.away="isOpen = false"
@@ -262,9 +248,7 @@
                                             <div
                                                 class="overflow-hidden rounded-md bg-white ring-1 ring-black/20 dark:bg-gray-700 dark:ring-black/40"
                                             >
-                                                <div
-                                                    class="flex flex-col gap-1 border-b px-4 py-2 font-medium dark:border-b-gray-600"
-                                                >
+                                                <div class="flex flex-col gap-1 border-b px-4 py-2 font-medium dark:border-b-gray-600">
                                                     <span class="text-gray-800 dark:text-gray-300">Ahmed Kamel</span>
                                                     <span class="truncate text-xs text-gray-400 dark:text-gray-500">
                                                         ahmed.kamel&#64;example.com
@@ -276,7 +260,7 @@
                                                 >
                                                     Profile
                                                 </a>
-
+                    
                                                 <a
                                                     href="#"
                                                     class="block px-4 py-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:text-white focus:bg-black focus:text-white focus:outline-none dark:text-gray-200"
@@ -297,7 +281,7 @@
                             class="container mx-auto flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center"
                         >
                             <h2 class="whitespace-nowrap text-lg font-semibold sm:text-2xl">Blank</h2>
-
+                            
                             <a
                                 href="https://github.com/Kamona-WD/starter-dashboard-layout"
                                 aria-disabled="false"
@@ -305,7 +289,7 @@
                                 target="_blank"
                             >
                                 <span aria-hidden="true" class="iconify h-6 w-6 tabler--brand-github"></span>
-
+                            
                                 <span>Star on Github</span>
                             </a>
                         </header>
@@ -315,8 +299,14 @@
                     <main class="flex-1 p-4 sm:p-6">
                         <div class="container mx-auto grid gap-4">
                             <!-- Page Content -->
-
+                            
+                            
+                            
+                            
                             <h1 class="sr-only">Blank</h1>
+                            
+                             
+                            
                         </div>
                     </main>
 
@@ -324,14 +314,12 @@
                     <footer
                         class="flex-shrink-0 border-t bg-white px-4 py-4 dark:border-gray-600 dark:bg-dark-1 sm:px-6 md:sticky md:bottom-0 md:max-h-14"
                     >
-                        <div
-                            class="container mx-auto flex flex-col-reverse items-center justify-between gap-1 md:flex-row"
-                        >
+                        <div class="container mx-auto flex flex-col-reverse items-center justify-between gap-1 md:flex-row">
                             <div x-data class="text-sm font-semibold text-gray-600 dark:text-gray-400">
                                 &copy;<span x-text="new Date().getFullYear()"></span>
                                 K-WD, All rights reserved
                             </div>
-
+                    
                             <div class="text-sm">
                                 Made by
                                 <a
@@ -343,7 +331,7 @@
                                     Ahmed Kamel
                                 </a>
                             </div>
-
+                    
                             <div>
                                 <a
                                     href="https://github.com/Kamona-WD/starter-dashboard-layout"
@@ -351,7 +339,7 @@
                                     class="flex items-center gap-1"
                                 >
                                     <span class="iconify h-6 w-6 text-gray-500 tabler--brand-github"></span>
-
+                    
                                     <span class="hidden text-sm md:block">View on Github</span>
                                 </a>
                             </div>
@@ -383,7 +371,7 @@
                             @click="$store.search.close()"
                             class="absolute inset-0 h-full w-full bg-black/50 backdrop-blur-md"
                         ></div>
-
+            
                         <div
                             x-show="$store.search.isOpen"
                             x-trap.inert.noscroll="$store.search.isOpen"
@@ -398,13 +386,10 @@
                             <div
                                 class="relative overflow-hidden border-b border-black text-gray-500 focus-within:text-gray-900 dark:focus-within:text-gray-400 sm:rounded-t-md"
                             >
-                                <div
-                                    aria-hidden="true"
-                                    class="pointer-events-none absolute inset-y-0 flex items-center px-4"
-                                >
+                                <div aria-hidden="true" class="pointer-events-none absolute inset-y-0 flex items-center px-4">
                                     <span class="iconify h-5 w-5 tabler--search"></span>
                                 </div>
-
+            
                                 <input
                                     id="search"
                                     type="text"
@@ -415,7 +400,7 @@
                                     spellcheck="false"
                                     class="flex h-11 w-full rounded-md border-0 bg-transparent py-4 pl-10 pr-16 outline-none placeholder:text-neutral-400 focus:border-0 focus:outline-none focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
                                 />
-
+            
                                 <button
                                     type="button"
                                     @click="$store.search.close()"
@@ -425,17 +410,15 @@
                                     <span aria-hidden="true" class="iconify h-5 w-5 tabler--x"></span>
                                 </button>
                             </div>
-
+            
                             <div class="max-h-[320px] overflow-y-auto overflow-x-hidden p-4">
                                 <div class="space-y-1 pb-1">
                                     <div class="overflow-hidden px-1">
-                                        <div
-                                            class="my-1 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-400"
-                                        >
+                                        <div class="my-1 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-400">
                                             Category
                                         </div>
                                     </div>
-
+            
                                     <div class="px-1">
                                         <div
                                             class="relative flex cursor-default select-none items-center gap-1 rounded-md px-2 py-1.5 text-sm text-gray-700 outline-none dark:text-gray-300"
@@ -467,14 +450,16 @@
                 <div class="flex flex-shrink-0 items-center justify-between p-2 text-gray-800 dark:text-gray-200">
                     <h6 class="p-2 text-lg">Settings</h6>
 
-                    <button
-                        @click="isSettingsPanelOpen = false"
-                        type="button"
-                        class="inline-flex select-none items-center justify-center gap-2 rounded-md bg-transparent p-2 font-medium text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 focus:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50 dark:text-gray-300 dark:hover:bg-dark-0 dark:focus:ring-offset-dark-1"
-                    >
-                        <span class="sr-only">Close</span>
-                        <span aria-hidden="true" class="iconify h-6 w-6 tabler--x"></span>
-                    </button>
+                    
+            <button  @click="isSettingsPanelOpen = false" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-700 focus:ring-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-0 p-2">
+                <span class="sr-only">Close</span>
+                <span aria-hidden="true" class="iconify tabler--x w-6 h-6"></span>
+                
+                
+                
+                
+            </button>
+        
                 </div>
 
                 <div
@@ -485,5 +470,7 @@
                 </div>
             </div>
         </div>
+
+
     </body>
 </html>

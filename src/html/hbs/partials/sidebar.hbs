@@ -15,7 +15,7 @@
     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
     class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all dark:border-gray-700 dark:bg-dark-1 lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
     :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
-    x-resize.document="watchScreen"
+    @resize.window="watchScreen"
 >
     <!-- sidebar header -->
     <div class="flex flex-shrink-0 items-center justify-between p-2" :class="{'lg:justify-center': !isSidebarOpen}">
