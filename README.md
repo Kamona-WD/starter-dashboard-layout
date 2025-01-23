@@ -5,6 +5,12 @@ Starter responsive dashboard layout built with tailwindcss and alpinejs
 [![GitHub license](https://img.shields.io/github/license/Kamona-WD/starter-dashboard-layout)](https://github.com/Kamona-WD/starter-dashboard-layout/blob/main/License.md)
 [![GitHub stars](https://img.shields.io/github/stars/Kamona-WD/starter-dashboard-layout)](https://github.com/Kamona-WD/starter-dashboard-layout/stargazers)
 
+#### Screens
+
+|                                      |                                    |
+| ------------------------------------ | ---------------------------------- |
+| ![Showcase light](screens/light.png) | ![Showcase dark](screens/dark.png) |
+
 ### [See live](https://kamona-wd.github.io/starter-dashboard-layout/)
 
 ### Vue version
