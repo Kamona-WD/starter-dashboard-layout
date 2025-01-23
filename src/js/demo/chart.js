@@ -32,7 +32,7 @@ document.addEventListener('alpine:init', () => {
     const baseChartOptions = {
         theme: {
             mode: getScheme() ? 'dark' : 'light',
-        }
+        },
     }
 
     const quickStatisticsChartOptions = (name) => {
@@ -195,13 +195,13 @@ document.addEventListener('alpine:init', () => {
                 show: false,
             },
         })
-        
+
         chart.render()
 
         return {
             init() {
                 onInit(chart)
-            }
+            },
         }
     })
 })

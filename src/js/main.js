@@ -19,7 +19,7 @@ Alpine.data('setup', () => {
             } else {
                 this.isSidebarOpen = true
             }
-        }
+        },
     }
 })
 
