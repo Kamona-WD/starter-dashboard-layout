@@ -13,12 +13,12 @@
     x-transition:leave="transition transform duration-300"
     x-transition:leave-start="translate-x-0 opacity-100 ease-out"
     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-    class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all dark:border-gray-700 dark:bg-dark-1 lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
+    class="fixed inset-y-0 z-40 flex max-h-screen w-64 shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all dark:border-gray-700 dark:bg-dark-1 lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
     :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
     @resize.window="watchScreen"
 >
     <!-- sidebar header -->
-    <div class="flex flex-shrink-0 items-center justify-between p-2" :class="{'lg:justify-center': !isSidebarOpen}">
+    <div class="flex shrink-0 items-center justify-between p-2" :class="{'lg:justify-center': !isSidebarOpen}">
         <span class="whitespace-nowrap p-2 text-xl font-semibold uppercase leading-8 tracking-wider">
             K<span :class="{'lg:hidden': !isSidebarOpen}">-WD</span>
         </span>
@@ -37,7 +37,7 @@
                     class="flex items-center gap-2 rounded-md p-2 transition-colors {{#if (eq ../activeLink title)}} text-white bg-black hover:bg-gray-800 dark:hover:bg-gray-900 {{else}} hover:text-white hover:bg-black {{/if}}"
                     :class="{'justify-center': !isSidebarOpen}"
                 >
-                    <span aria-hidden="true" class="iconify {{ iconName }} flex-shrink-0 h-6 w-6 text-gray-400"></span>
+                    <span aria-hidden="true" class="iconify {{ iconName }} shrink-0 h-6 w-6 text-gray-400"></span>
 
                     <span :class="{ 'lg:hidden': !isSidebarOpen }" class="whitespace-nowrap">
                         {{ title }}
@@ -52,7 +52,7 @@
                     @click="open = !open"
                     :class="{'justify-center': !isSidebarOpen}"
                 >
-                    <span class="iconify {{ iconName }} flex-shrink-0 w-6 h-6 text-gray-400" aria-hidden="true"></span>
+                    <span class="iconify {{ iconName }} shrink-0 w-6 h-6 text-gray-400" aria-hidden="true"></span>
 
                     <span :class="{ 'lg:hidden': !isSidebarOpen }" class="whitespace-nowrap">
                         {{ title }}
@@ -96,9 +96,9 @@
     </nav>
 
     <!-- Sidebar footer -->
-    <div class="max-h-14 flex-shrink-0 border-t p-2 dark:border-gray-600">
+    <div class="max-h-14 shrink-0 border-t p-2 dark:border-gray-600">
         {{#btn variant="black" classes="w-full text-sm"}}
-        <span aria-hidden="true" class="iconify h-6 w-6 flex-shrink-0 tabler--sparkles"></span>
+        <span aria-hidden="true" class="iconify h-6 w-6 shrink-0 tabler--sparkles"></span>
 
         <span :class="{'lg:hidden': !isSidebarOpen}" class="whitespace-nowrap"> Quick Actions </span>
         {{/btn}}

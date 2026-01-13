@@ -7,7 +7,7 @@
     <template x-teleport="#app">
         <div
             x-show="$store.search.isOpen"
-            class="fixed inset-0 z-[99] flex h-screen w-screen items-start justify-center sm:py-10"
+            class="fixed inset-0 z-99 flex h-screen w-screen items-start justify-center sm:py-10"
             x-cloak
         >
             <div
@@ -31,7 +31,7 @@
                 x-transition:leave="ease-in duration-200"
                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                class="z-[99] w-full bg-white shadow-lg dark:bg-dark-2 sm:max-w-lg sm:rounded-md"
+                class="z-99 w-full bg-white shadow-lg dark:bg-dark-2 sm:max-w-lg sm:rounded-md"
             >
                 <div
                     class="relative overflow-hidden border-b border-black text-gray-500 focus-within:text-gray-900 dark:focus-within:text-gray-400 sm:rounded-t-md"

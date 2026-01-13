@@ -33,7 +33,7 @@ export default {
         } = context.hash
 
         let baseClasses =
-            'inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 '
+            'inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 '
 
         switch (variant) {
             case 'black':

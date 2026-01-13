@@ -25,8 +25,8 @@
         </style>
 
 
-      <script type="module" crossorigin src="/starter-dashboard-layout/js/blank-page-D4KvBZpH.js"></script>
-      <link rel="modulepreload" crossorigin href="/starter-dashboard-layout/js/main-13uMEftd.js">
+      <script type="module" crossorigin src="/starter-dashboard-layout/js/blank-page-xum44K2b.js"></script>
+      <link rel="modulepreload" crossorigin href="/starter-dashboard-layout/js/main-CtOhZuDN.js">
       <link rel="stylesheet" crossorigin href="/starter-dashboard-layout/css/main.css">
     </head>
     <body class="font-sans antialiased">
@@ -39,7 +39,7 @@
             <!-- Loading screen -->
             <div
                 x-ref="loading"
-                class="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 text-white backdrop-blur-lg"
+                class="fixed inset-0 z-200 flex items-center justify-center bg-black/80 text-white backdrop-blur-lg"
             >
                 Loading.....
             </div>
@@ -60,18 +60,18 @@
                     x-transition:leave="transition transform duration-300"
                     x-transition:leave-start="translate-x-0 opacity-100 ease-out"
                     x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-                    class="fixed inset-y-0 z-40 flex max-h-screen w-64 flex-shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all dark:border-gray-700 dark:bg-dark-1 lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
+                    class="fixed inset-y-0 z-40 flex max-h-screen w-64 shrink-0 transform flex-col overflow-hidden border-r bg-white shadow-lg transition-all dark:border-gray-700 dark:bg-dark-1 lg:sticky lg:top-0 lg:z-auto lg:shadow-none"
                     :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
                     @resize.window="watchScreen"
                 >
                     <!-- sidebar header -->
-                    <div class="flex flex-shrink-0 items-center justify-between p-2" :class="{'lg:justify-center': !isSidebarOpen}">
+                    <div class="flex shrink-0 items-center justify-between p-2" :class="{'lg:justify-center': !isSidebarOpen}">
                         <span class="whitespace-nowrap p-2 text-xl font-semibold uppercase leading-8 tracking-wider">
                             K<span :class="{'lg:hidden': !isSidebarOpen}">-WD</span>
                         </span>
                 
                         
-                            <button  @click="toggleSidbarMenu()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-700 focus:ring-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-0 p-2 lg:hidden">
+                            <button  @click="toggleSidbarMenu()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-700 focus:ring-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-0 p-2 lg:hidden">
                                 <span class="sr-only">Close sidebar</span>
                                 <span aria-hidden="true" class="iconify tabler--x w-6 h-6"></span>
                                 
@@ -91,7 +91,7 @@
                                     class="flex items-center gap-2 rounded-md p-2 transition-colors  hover:text-white hover:bg-black "
                                     :class="{'justify-center': !isSidebarOpen}"
                                 >
-                                    <span aria-hidden="true" class="iconify tabler--dashboard flex-shrink-0 h-6 w-6 text-gray-400"></span>
+                                    <span aria-hidden="true" class="iconify tabler--dashboard shrink-0 h-6 w-6 text-gray-400"></span>
                 
                                     <span :class="{ 'lg:hidden': !isSidebarOpen }" class="whitespace-nowrap">
                                         Dashboard
@@ -105,7 +105,7 @@
                                     @click="open = !open"
                                     :class="{'justify-center': !isSidebarOpen}"
                                 >
-                                    <span class="iconify tabler--file flex-shrink-0 w-6 h-6 text-gray-400" aria-hidden="true"></span>
+                                    <span class="iconify tabler--file shrink-0 w-6 h-6 text-gray-400" aria-hidden="true"></span>
                 
                                     <span :class="{ 'lg:hidden': !isSidebarOpen }" class="whitespace-nowrap">
                                         Pages
@@ -145,14 +145,14 @@
                     </nav>
                 
                     <!-- Sidebar footer -->
-                    <div class="max-h-14 flex-shrink-0 border-t p-2 dark:border-gray-600">
+                    <div class="max-h-14 shrink-0 border-t p-2 dark:border-gray-600">
                 
-                            <button   type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-black text-gray-200 hover:bg-gray-900 focus:ring-black px-4 py-2 w-full text-sm">
+                            <button   type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-black text-gray-200 hover:bg-gray-900 focus:ring-black px-4 py-2 w-full text-sm">
                                 
                                 
                                 
                                 
-                                        <span aria-hidden="true" class="iconify h-6 w-6 flex-shrink-0 tabler--sparkles"></span>
+                                        <span aria-hidden="true" class="iconify h-6 w-6 shrink-0 tabler--sparkles"></span>
                 
                         <span :class="{'lg:hidden': !isSidebarOpen}" class="whitespace-nowrap"> Quick Actions </span>
                 
@@ -162,7 +162,7 @@
                 </aside>
 
                 <div class="flex min-h-screen flex-1 flex-col">
-                    <nav class="sticky top-0 z-10 flex-shrink-0 border-b bg-white px-4 py-2 dark:border-gray-600 dark:bg-dark-1 sm:px-6">
+                    <nav class="sticky top-0 z-10 shrink-0 border-b bg-white px-4 py-2 dark:border-gray-600 dark:bg-dark-1 sm:px-6">
                         <div class="container mx-auto">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-3">
@@ -170,7 +170,7 @@
                     
                                     <!-- Toggle sidebar button -->
                     
-                                <button  @click="toggleSidbarMenu()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
+                                <button  @click="toggleSidbarMenu()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
                                     <span class="sr-only">Toggle sidebar</span>
                                     
                                     
@@ -186,7 +186,7 @@
                             
                                     <!-- Search button -->
                                     
-                                <button  @click="$store.search.open()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
+                                <button  @click="$store.search.open()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
                                     <span class="sr-only">Search</span>
                                     <span aria-hidden="true" class="iconify tabler--search w-6 h-6"></span>
                                     
@@ -200,7 +200,7 @@
                                 <div class="flex items-center gap-3">
                                     <!-- Dark mode button -->
                     
-                                <button  @click="$store.darkMode.toggle()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
+                                <button  @click="$store.darkMode.toggle()" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
                                     <span class="sr-only">Toggle dark mode</span>
                                     
                                     
@@ -216,7 +216,7 @@
                             
                                     <!-- Settings button -->
                                     
-                                <button  @click="isSettingsPanelOpen = true" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
+                                <button  @click="isSettingsPanelOpen = true" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-2">
                                     <span class="sr-only">Settings</span>
                                     <span aria-hidden="true" class="iconify tabler--settings w-6 h-6"></span>
                                     
@@ -229,7 +229,7 @@
                                     <!-- User dropdown menu -->
                                     <div class="relative" x-data="{ isOpen: false }">
                     
-                                <button  @click="isOpen = !isOpen" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-0">
+                                <button  @click="isOpen = !isOpen" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-100 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:ring-black dark:bg-gray-900 dark:text-gray-400 p-0">
                                     <span class="sr-only">User avatar</span>
                                     
                                     
@@ -243,7 +243,7 @@
                                             x-cloak
                                             @click.away="isOpen = false"
                                             x-show.transition.opacity="isOpen"
-                                            class="absolute right-0 z-[99] mt-2 w-48 origin-top-right rounded-md shadow-lg"
+                                            class="absolute right-0 z-99 mt-2 w-48 origin-top-right rounded-md shadow-lg"
                                         >
                                             <div
                                                 class="overflow-hidden rounded-md bg-white ring-1 ring-black/20 dark:bg-gray-700 dark:ring-black/40"
@@ -312,7 +312,7 @@
 
                     <!-- Footer -->
                     <footer
-                        class="flex-shrink-0 border-t bg-white px-4 py-4 dark:border-gray-600 dark:bg-dark-1 sm:px-6 md:sticky md:bottom-0 md:max-h-14"
+                        class="shrink-0 border-t bg-white px-4 py-4 dark:border-gray-600 dark:bg-dark-1 sm:px-6 md:sticky md:bottom-0 md:max-h-14"
                     >
                         <div class="container mx-auto flex flex-col-reverse items-center justify-between gap-1 md:flex-row">
                             <div x-data class="text-sm font-semibold text-gray-600 dark:text-gray-400">
@@ -357,7 +357,7 @@
                 <template x-teleport="#app">
                     <div
                         x-show="$store.search.isOpen"
-                        class="fixed inset-0 z-[99] flex h-screen w-screen items-start justify-center sm:py-10"
+                        class="fixed inset-0 z-99 flex h-screen w-screen items-start justify-center sm:py-10"
                         x-cloak
                     >
                         <div
@@ -381,7 +381,7 @@
                             x-transition:leave="ease-in duration-200"
                             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                            class="z-[99] w-full bg-white shadow-lg dark:bg-dark-2 sm:max-w-lg sm:rounded-md"
+                            class="z-99 w-full bg-white shadow-lg dark:bg-dark-2 sm:max-w-lg sm:rounded-md"
                         >
                             <div
                                 class="relative overflow-hidden border-b border-black text-gray-500 focus-within:text-gray-900 dark:focus-within:text-gray-400 sm:rounded-t-md"
@@ -451,7 +451,7 @@
                     <h6 class="p-2 text-lg">Settings</h6>
 
                     
-            <button  @click="isSettingsPanelOpen = false" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-700 focus:ring-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-0 p-2">
+            <button  @click="isSettingsPanelOpen = false" type="button" class="inline-flex items-center justify-center gap-2 rounded-md transition-colors font-medium select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-dark-1 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-gray-700 focus:ring-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-0 p-2">
                 <span class="sr-only">Close</span>
                 <span aria-hidden="true" class="iconify tabler--x w-6 h-6"></span>
                 

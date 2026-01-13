@@ -2,6 +2,7 @@ import { resolve, relative } from 'path'
 import { defineConfig } from 'vite'
 import { glob } from 'glob'
 import handlebarsPlugin from 'vite-plugin-handlebars'
+import tailwindcss from '@tailwindcss/vite'
 import hbsHelpers from './src/support/hbs-helpers'
 import data from './src/data'
 import { baseUrl } from './src/support'
@@ -33,6 +34,8 @@ export default defineConfig({
 
             helpers: hbsHelpers,
         }),
+
+        tailwindcss(),
     ],
     root,
     base: baseUrl,
