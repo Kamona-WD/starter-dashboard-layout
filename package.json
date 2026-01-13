@@ -21,7 +21,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kamona-wd/starter-dashboard-layout"
-},
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",
@@ -41,6 +41,7 @@
     "apexcharts": "^4.3.0",
     "autoprefixer": "^10.4.20",
     "gh-pages": "^6.3.0",
+    "glob": "^13.0.0",
     "perfect-scrollbar": "^1.5.6",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
