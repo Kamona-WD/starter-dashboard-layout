@@ -38,7 +38,7 @@ cd starter-dashboard-layout
 2. Install the dependencies:
 
 ```bash
-yarn
+pnpm install
 
 # Using npm
 npm install
@@ -47,7 +47,7 @@ npm install
 3. Start the development server:
 
 ```bash
-yarn dev
+pnpm dev
 
 # Using npm
 npm run dev
@@ -58,7 +58,7 @@ npm run dev
 To build an optimized version of your CSS & html, simply run:
 
 ```bash
-yarn build
+pnpm build
 
 # Using Yarn
 npm run build
